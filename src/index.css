@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  font-family: "Dana-Regular";
+  direction: rtl;
+}
+
+.DanaBold {
+  font-family: "Dana-Bold";
+}
+
+@layer base {
+  @font-face {
+    font-family: "Dana-Regular";
+    src: url(../src/assets/Fonts/Webfonts/woff2/Dana-Regular.woff2) format("woff2");
+  }
+
+  @font-face {
+    font-family: "Dana-Bold";
+    src: url(../src/assets/Fonts/Webfonts/woff2/Dana-Bold.woff2) format("woff2");
+  }
+
+  @media (min-width: 1536px) {
+    .container {
+      max-width: 1300px !important;
+    }
+  }
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #17E1FF;
+  border-radius: 15px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00abc6;
+  cursor: grab;
+}
