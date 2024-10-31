@@ -8,7 +8,7 @@ export default function ServiceBoxItemComponent({
 }) {
   return (
     <div
-      className={`${customClass} w-[23rem] p-4 bg-[#333546] rounded-2xl flex flex-col items-start gap-5`}
+      className={`${customClass} p-4 bg-[#333546] rounded-2xl flex flex-col items-start gap-5`}
     >
       <div className="w-full flex flex-row items-center gap-2">
         <img src={icon} alt="" className="" />

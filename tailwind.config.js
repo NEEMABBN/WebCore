@@ -9,7 +9,16 @@ export default {
       colors: {
         Primary: "#17E1FF",
         Secoundray: "#2E2F36"
-      }
+      },
+      keyframes: {
+        myAnimate: {
+          '0': { transform: 'translateX(0%)' },
+          '100': { transform: 'translateX(-100%)' }
+        }
+      },
+      animation: {
+        'infinitMove': 'myAnimate 10s linear infinite'
+      },
     },
   },
   plugins: [],

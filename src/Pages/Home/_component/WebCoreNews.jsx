@@ -32,10 +32,24 @@ export default function WebCoreNews() {
                 dir="rtl"
                 navigation={false}
                 loop={true}
-                slidesPerView={4}
-                spaceBetween={20}
+                slidesPerView={1}
+                spaceBetween={15}
                 modules={[Navigation]}
                 ref={swiperRef}
+                breakpoints={{
+                  1024: {
+                    slidesPerView: 4,
+                    spaceBetween: 20,
+                  },
+                  765: {
+                    slidesPerView: 3,
+                    spaceBetween: 20,
+                  },
+                  600: {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                  },
+                }}
                 className="mySwiper"
               >
                 <SwiperSlide>
@@ -43,6 +57,7 @@ export default function WebCoreNews() {
                     title="افتتاح استودیو تولیدمحتوای هسته‌وب ایرانیان"
                     image={Images.NewsImageV1}
                     CustomMiniBg="bg-[#354447]"
+                    category="خبر"
                   />
                 </SwiperSlide>
                 <SwiperSlide>
@@ -50,6 +65,7 @@ export default function WebCoreNews() {
                     title="حضور مدیر و کارشناسان هسته وب ایرانیان در اولین نمایشگاه ارز دیجیتال و متاورس"
                     image={Images.NewsImageV2}
                     CustomMiniBg="bg-[#473538]"
+                    category="بلاگ"
                   />
                 </SwiperSlide>
                 <SwiperSlide>
@@ -57,6 +73,7 @@ export default function WebCoreNews() {
                     title="افتتاح استودیو تولیدمحتوای هسته‌وب ایرانیان"
                     image={Images.NewsImageV1}
                     CustomMiniBg="bg-[#354447]"
+                    category="خبر"
                   />
                 </SwiperSlide>
                 <SwiperSlide>
@@ -64,6 +81,7 @@ export default function WebCoreNews() {
                     title="حضور مدیر و کارشناسان هسته وب ایرانیان در اولین نمایشگاه ارز دیجیتال و متاورس"
                     image={Images.NewsImageV2}
                     CustomMiniBg="bg-[#473538]"
+                    category="بلاگ"
                   />
                 </SwiperSlide>
                 <SwiperSlide>
@@ -71,6 +89,7 @@ export default function WebCoreNews() {
                     title="افتتاح استودیو تولیدمحتوای هسته‌وب ایرانیان"
                     image={Images.NewsImageV1}
                     CustomMiniBg="bg-[#354447]"
+                    category="خبر"
                   />
                 </SwiperSlide>
                 <SwiperSlide>
@@ -78,6 +97,7 @@ export default function WebCoreNews() {
                     title="حضور مدیر و کارشناسان هسته وب ایرانیان در اولین نمایشگاه ارز دیجیتال و متاورس"
                     image={Images.NewsImageV2}
                     CustomMiniBg="bg-[#473538]"
+                    category="بلاگ"
                   />
                 </SwiperSlide>
                 <SwiperSlide>
@@ -85,6 +105,7 @@ export default function WebCoreNews() {
                     title="افتتاح استودیو تولیدمحتوای هسته‌وب ایرانیان"
                     image={Images.NewsImageV1}
                     CustomMiniBg="bg-[#354447]"
+                    category="خبر"
                   />
                 </SwiperSlide>
                 <SwiperSlide>
@@ -92,6 +113,7 @@ export default function WebCoreNews() {
                     title="حضور مدیر و کارشناسان هسته وب ایرانیان در اولین نمایشگاه ارز دیجیتال و متاورس"
                     image={Images.NewsImageV2}
                     CustomMiniBg="bg-[#473538]"
+                    category="بلاگ"
                   />
                 </SwiperSlide>
               </Swiper>

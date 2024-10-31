@@ -24,18 +24,29 @@ export default function TrainingCourses() {
       <TemplateV1
         className="pb-20 gap-9"
         title="دوره‌های آموزشی"
-        CustomBody="flex items-center gap-8 py-5"
+        CustomBody="flex items-center py-5"
         body={
           <>
             <Swiper
               dir="rtl"
               navigation={false}
               loop={true}
-              slidesPerView={4}
-              spaceBetween={20}
+              slidesPerView={1}
+              spaceBetween={5}
               modules={[Navigation]}
+              breakpoints={{
+                1024: {
+                  slidesPerView: 4,
+                },
+                765: {
+                  slidesPerView: 3,
+                },
+                600: {
+                  slidesPerView: 2,
+                },
+              }}
               ref={swiperRef}
-              className="mySwiper !py-8"
+              className="mySwiper !py-8 sm:!px-0 !px-5"
             >
               <SwiperSlide>
                 <EachCourseItemComponent

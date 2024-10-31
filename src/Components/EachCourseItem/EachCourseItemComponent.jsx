@@ -11,7 +11,7 @@ export default function EachCourseItemComponent({
   likes,
 }) {
   return (
-    <div className="flex flex-col items-start gap-2 group hover:scale-105 transition-all relative">
+    <div className="flex flex-col items-start gap-2 border-l border-solid border-[#4C4E59] px-4 group hover:scale-105 transition-all relative">
       <img src={image} alt="" className="rounded-t-2xl" />
       <h3 className="text-white font-extrabold text-xl">{title}</h3>
       <div className="flex items-center">

@@ -6,7 +6,7 @@ export default function NavbarItemsComponent() {
     <ul className="flex items-center gap-5">
       <li className="">
         <NavLink
-          to="/"
+          to="/somePage"
           className={({ isActive }) =>
             `text-nowrap ${isActive ? "text-Primary" : "text-white"}`
           }
