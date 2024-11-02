@@ -1,14 +1,31 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import LinearIcons from "./LinearIcons";
 import { FaCircleArrowLeft } from "react-icons/fa6";
 import CustomButtonComponent from "../../../Components/CustomButton/CustomButtonComponent";
 import Images from "../../../Setting/Images";
+import { IoPlay } from "react-icons/io5";
+import gsap from "gsap";
 
 export default function Landing() {
   const [position, setPosition] = useState(0);
   const [direction, setDirection] = useState("up");
   const step = 80;
   const maxSteps = 3;
+
+  const elementRef = useRef(null);
+
+  useEffect(() => {
+    const rotationAnimation = gsap.to(elementRef.current, {
+      rotation: 360,
+      duration: 8,
+      repeat: -1,
+      ease: "linear",
+    });
+
+    return () => {
+      rotationAnimation.kill();
+    };
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -40,8 +57,14 @@ export default function Landing() {
         alt=""
         className="md:block hidden absolute w-[550px] top-[-3rem] lg:left-[-11rem] left-[-18rem] opacity-5 z-0"
       />
-      <div className="w-full flex items-center justify-center">
-        <img src={Images.LandingSVG} alt="" className="w-[122px] z-[2]" />
+      <div className="flex items-center justify-center relative">
+        <img
+          src={Images.LandingSVG}
+          ref={elementRef}
+          alt=""
+          className="w-[122px] z-[2]"
+        />
+        <IoPlay className="text-[#202026] z-[3] text-[22px] absolute left-[51px]" />
       </div>
       <div className="w-full flex flex-col items-center relative sm:gap-6">
         <img
