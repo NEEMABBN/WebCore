@@ -7,15 +7,16 @@ export default function SideMenu({ isMenuOpen }) {
     <div
       className={`absolute top-0 ${
         isMenuOpen ? "right-0" : "right-[-100%]"
-      } md:hidden flex flex-col h-screen bg-[#2E2F36] w-[60%] rounded-2xl transition-all duration-300 py-7 px-5 gap-9`}
+      } md:hidden flex flex-col h-screen bg-[#2E2F36] w-[60%] rounded-2xl transition-all duration-300 py-7 px-5 gap-9 overflow-hidden`}
     >
       <div className="w-full flex items-center justify-between">
-        <FaXmark className="text-white" />
+        <FaXmark className="text-white text-xl" />
         <button className="text-white">FA</button>
       </div>
 
-      <ul className="w-full flex flex-col items-start gap-5">
-        <li className="">
+      <ul className="w-full flex flex-col items-start gap-5 overflow-hidden">
+        <li className="w-full flex items-center justify-start gap-3 translate-x-3 hover:translate-x-0 transition-all">
+          <span className="w-2 h-[2px] bg-white rounded-full"></span>
           <NavLink
             to="/"
             className={({ isActive }) =>
@@ -25,7 +26,8 @@ export default function SideMenu({ isMenuOpen }) {
             صفحه اصلی
           </NavLink>
         </li>
-        <li className="">
+        <li className="w-full flex items-center justify-start gap-3 translate-x-3 hover:translate-x-0 transition-all">
+          <span className="w-2 h-[2px] bg-white rounded-full"></span>
           <NavLink
             to="/somePage"
             className={({ isActive }) =>
@@ -35,7 +37,8 @@ export default function SideMenu({ isMenuOpen }) {
             محصولات
           </NavLink>
         </li>
-        <li className="">
+        <li className="w-full flex items-center justify-start gap-3 translate-x-3 hover:translate-x-0 transition-all">
+          <span className="w-2 h-[2px] bg-white rounded-full"></span>
           <NavLink
             to="/somePage"
             className={({ isActive }) =>
@@ -45,7 +48,8 @@ export default function SideMenu({ isMenuOpen }) {
             خدمات
           </NavLink>
         </li>
-        <li className="">
+        <li className="w-full flex items-center justify-start gap-3 translate-x-3 hover:translate-x-0 transition-all">
+          <span className="w-2 h-[2px] bg-white rounded-full"></span>
           <NavLink
             to="/somePage"
             className={({ isActive }) =>
@@ -55,7 +59,8 @@ export default function SideMenu({ isMenuOpen }) {
             دوره‌های آموزشی
           </NavLink>
         </li>
-        <li className="">
+        <li className="w-full flex items-center justify-start gap-3 translate-x-3 hover:translate-x-0 transition-all">
+          <span className="w-2 h-[2px] bg-white rounded-full"></span>
           <NavLink
             to="/somePage"
             className={({ isActive }) =>
@@ -65,7 +70,8 @@ export default function SideMenu({ isMenuOpen }) {
             همکارامون
           </NavLink>
         </li>
-        <li className="">
+        <li className="w-full flex items-center justify-start gap-3 translate-x-3 hover:translate-x-0 transition-all">
+          <span className="w-2 h-[2px] bg-white rounded-full"></span>
           <NavLink
             to="/somePage"
             className={({ isActive }) =>
@@ -75,7 +81,8 @@ export default function SideMenu({ isMenuOpen }) {
             تماس با ما
           </NavLink>
         </li>
-        <li className="">
+        <li className="w-full flex items-center justify-start gap-3 translate-x-3 hover:translate-x-0 transition-all">
+          <span className="w-2 h-[2px] bg-white rounded-full"></span>
           <NavLink
             to="/somePage"
             className={({ isActive }) =>

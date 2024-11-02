@@ -35,13 +35,15 @@ export default function Navbar() {
         </Link>
         <NavbarItemsComponent />
       </div>
-      <button className="text-white md:block hidden">FA</button>
-      <img
-        src={Images.Logo}
-        alt="WebCore Logo"
-        className="md:hidden block w-[35px]"
-      />
+      <Link to="/">
+        <img
+          src={Images.Logo}
+          alt="WebCore Logo"
+          className="md:hidden block w-[35px]"
+        />
+      </Link>
       <SideMenu isMenuOpen={isMenuOpen} className="menu" />
+      <button className="text-white md:block hidden">FA</button>
     </div>
   );
 }

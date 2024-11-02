@@ -24,7 +24,7 @@ export default function Landing() {
         }
         return newPosition;
       });
-    }, 1000);
+    }, 2000);
     return () => clearInterval(interval);
   }, [direction, step]);
 
@@ -47,33 +47,37 @@ export default function Landing() {
         <img
           src={Images.DotedGroup}
           alt=""
-          className="absolute lg:top-10 md:top-8 sm:top-[-10rem] top-[-8.5rem] md:left-[-25rem] sm:left-[-3rem] md:w-auto w-full md:scale-100 scale-150 max-[400px]:scale-[3]"
+          className="absolute lg:top-10 md:top-8 sm:top-[-10rem] top-[-10rem] max-[400px]:top-[-8.5rem] md:left-[-34rem] sm:left-[-3rem] md:w-auto w-full md:scale-100 scale-150 max-[635px]:scale-[1.8] max-[500px]:scale-[2.2] max-[400px]:scale-[3]"
         />
         <div className="xl:w-[50%] lg:w-[60%] md:w-[80%] w-full flex flex-col items-center gap-6">
-          <div className="w-full flex items-start py-2 relative">
+          <div className="w-full flex items-start justify-center py-2 relative">
             <img
               src={Images.VectorRight}
               alt=""
               className="sm:w-auto w-[66px] lg:mt-8 mt-5 md:static absolute top-0 sm:right-[6.7rem] right-[9rem] max-[560px]:right-[7rem] max-[490px]:right-[5rem] max-[430px]:right-[3rem] max-[380px]:right-[2rem]"
             />
 
-            <div className="w-full flex flex-col items-center sm:gap-3 gap-2">
+            <div className="w-full flex flex-col items-center">
               <div className="flex sm:flex-row flex-col items-center gap-1 text-center bg-clip-text py-2 text-transparent fill-transparent bg-gradient-to-l from-white to-[#58F4FF]">
-                <span className="lg:text-[55px] md:text-5xl text-3xl font-extrabold DanaBold">هسته وب؛</span>
-                <span className="lg:text-[55px] md:text-5xl text-3xl font-extrabold DanaBold">در کنار شما برای</span>
+                <span className="lg:text-[55px] md:text-5xl text-3xl font-extrabold DanaBold">
+                  هسته وب؛
+                </span>
+                <span className="lg:text-[55px] md:text-5xl text-3xl font-extrabold DanaBold">
+                  در کنار شما برای
+                </span>
               </div>
-              <div className="w-full h-20 overflow-hidden">
+              <div className="w-full sm:h-20 h-14 overflow-hidden">
                 <div
-                  className="w-full flex flex-col items-center transition-all duration-1000 delay-300 sm:gap-[6px]"
+                  className="w-full flex flex-col items-center transition-all duration-1000 delay-300 sm:gap-[6px] gap-6 max-[377px]:gap-5"
                   style={{ transform: `translateY(-${position}px)` }}
                 >
-                  <span className="text-center bg-clip-text py-2 text-transparent fill-transparent bg-gradient-to-l from-white to-[#58F4FF] lg:text-[55px] md:text-5xl text-3xl font-extrabold DanaBold h-20">
+                  <span className="text-center bg-clip-text py-2 text-transparent fill-transparent bg-gradient-to-l from-white to-[#58F4FF] lg:text-[55px] md:text-5xl text-3xl max-[377px]:text-[29px] font-extrabold DanaBold sm:h-20 h-14">
                     حل مشکلات کاربرانت
                   </span>
-                  <span className="text-center bg-clip-text py-2 text-transparent fill-transparent bg-gradient-to-l from-white to-[#58F4FF] lg:text-[55px] md:text-5xl text-3xl font-extrabold DanaBold h-20">
+                  <span className="text-center bg-clip-text py-2 text-transparent fill-transparent bg-gradient-to-l from-white to-[#58F4FF] lg:text-[55px] md:text-5xl text-3xl max-[377px]:text-[29px] font-extrabold DanaBold sm:h-20 h-14">
                     رشد کسب و کارت
                   </span>
-                  <span className="text-center sm:text-nowrap bg-clip-text py-2 text-transparent fill-transparent bg-gradient-to-l from-white to-[#58F4FF] lg:text-[55px] md:text-5xl text-3xl font-extrabold DanaBold h-20">
+                  <span className="text-center sm:text-nowrap bg-clip-text py-2 text-transparent fill-transparent bg-gradient-to-l from-white to-[#58F4FF] lg:text-[55px] md:text-5xl text-3xl max-[377px]:text-[29px] font-extrabold DanaBold sm:h-20 h-14">
                     ساخت لحظه‌های خوب کاربرانت
                   </span>
                 </div>
