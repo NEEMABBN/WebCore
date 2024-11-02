@@ -104,7 +104,9 @@ export default function Landing() {
         <FaCircleArrowLeft className="text-xl" />
         تماس با ما
       </CustomButtonComponent>
-      <LinearIcons />
+      <div className="w-full my-20">
+        <LinearIcons />
+      </div>
     </header>
   );
 }
