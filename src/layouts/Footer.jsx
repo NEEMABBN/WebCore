@@ -1,8 +1,61 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Images from "../Setting/Images";
 import { Link, NavLink } from "react-router-dom";
+import anime from "animejs";
 
 export default function Footer() {
+  const AnimatedText = ({ text }) => {
+    const textRef = useRef(null);
+    const hasAnimated = useRef(false);
+    useEffect(() => {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting && !hasAnimated.current) {
+              const words = textRef.current.querySelectorAll(".word");
+              anime({
+                targets: words,
+                scale: [0.4, 1],
+                easing: "easeOutBack",
+                duration: 700,
+                delay: anime.stagger(100),
+                complete: () => {
+                  hasAnimated.current = true;
+                },
+              });
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+      if (textRef.current) {
+        observer.observe(textRef.current);
+      }
+      return () => {
+        if (textRef.current) {
+          observer.unobserve(textRef.current);
+        }
+      };
+    }, []);
+    const splitTextToWords = (text) => {
+      return text.split(" ").map((word, index) => (
+        <span
+          key={index}
+          className="word"
+          style={{ display: "inline-block", margin: "0 5px" }}
+        >
+          {word}
+        </span>
+      ));
+    };
+    return (
+      <div ref={textRef} style={{ display: "inline-block" }}>
+        {splitTextToWords(text)}
+      </div>
+    );
+  };
+
   return (
     <div className="w-[95%] flex flex-col items-center relative md:bg-[url('/src/assets/Images/FooterBg.png')] bg-[url('/src/assets/Images/TabletFooterBg.png')] bg-top bg-cover py-10 bg-no-repeat mt-16 rounded-2xl sm:px-0 px-3">
       <Link
@@ -83,15 +136,7 @@ export default function Footer() {
       </div>
       <div className="container mx-auto flex md:flex-row flex-col md:items-start items-center justify-between border-solid border-t-2 border-[#4C4E59] py-5">
         <p className="text-[#C8DAEA] text-sm leading-6 xl:w-[35%] md:w-[45%] w-full md:text-start text-center md:border-none border-solid border-b-2 border-[#4C4E59] md:p-0 px-5 pb-5">
-          شرکت ایده گستران هوشمند طبرستان یک شرکت پیشرو با ارائه خدمات در
-          حوزه‌های وب، اپلیکیشن موبایل، تحلیل داده، بازی سازی و تولید محتوا است
-          که برای اولین بار در سال ۱۳۸۵ شروع به کار کرده است و در ابتدای آغاز
-          کار خود بر تولید نرم افزارهای تخصصی مالی متمرکز بوده است. تیم هسته وب
-          ایرانیان دارای با استعدادترین و تواناترین افراد در حوزه فناوری بوده و
-          با توجه به اهداف بزرگی که برای آینده خود در نظر گرفته است به‌طور مداوم
-          در حال بهبود کیفیت خدمات، محصولات و توسعه تیم خود است و راهی طولانی و
-          دشوار را برای کسب تجربه، دانش و مدیریت منابع انسانی در حوزه فناوری‌
-          پیموده است.
+          <AnimatedText text="شرکت ایده گستران هوشمند طبرستان یک شرکت پیشرو با ارائه خدمات در حوزه‌های وب، اپلیکیشن موبایل، تحلیل داده، بازی سازی و تولید محتوا است که برای اولین بار در سال ۱۳۸۵ شروع به کار کرده است و در ابتدای آغاز کار خود بر تولید نرم افزارهای تخصصی مالی متمرکز بوده است. تیم هسته وب ایرانیان دارای با استعدادترین و تواناترین افراد در حوزه فناوری بوده و با توجه به اهداف بزرگی که برای آینده خود در نظر گرفته است به‌طور مداوم در حال بهبود کیفیت خدمات، محصولات و توسعه تیم خود است و راهی طولانی و دشوار را برای کسب تجربه، دانش و مدیریت منابع انسانی در حوزه فناوری‌ پیموده است" />
         </p>
         <div className="xl:w-[35%] md:w-[45%] w-full flex flex-col md:justify-start justify-normal md:items-start items-center md:gap-4 sm:gap-2 gap-4 md:pt-0 pt-5">
           <div className="flex items-center gap-2">

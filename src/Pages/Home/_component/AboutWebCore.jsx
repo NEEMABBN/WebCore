@@ -1,13 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Images from "../../../Setting/Images";
 import CustomButtonComponent from "../../../Components/CustomButton/CustomButtonComponent";
 import { useInView } from "react-intersection-observer";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
 export default function AboutWebCore() {
   const [count1, setCount1] = useState();
   const [count2, setCount2] = useState();
   const [count3, setCount3] = useState();
   const { ref, inView } = useInView({ threshold: 0.1 });
+  const imageRef = useRef(null);
+  const titleRef = useRef(null);
+  const descriptionRef = useRef(null);
+  const paragraphRef = useRef(null);
 
   useEffect(() => {
     if (inView) {
@@ -48,18 +55,77 @@ export default function AboutWebCore() {
   const formattedCount2 = new Intl.NumberFormat("fa-IR").format(count2);
   const formattedCount3 = new Intl.NumberFormat("fa-IR").format(count3);
 
+  useEffect(() => {
+    gsap.from(imageRef.current, {
+      duration: 2,
+      opacity: 0,
+      scrollTrigger: {
+        trigger: imageRef.current,
+        start: "top 80%",
+        scrub: false,
+      },
+      ease: "back.out",
+    });
+    gsap.from(titleRef.current, {
+      y: -40,
+      duration: 2,
+      opacity: 0,
+      scrollTrigger: {
+        trigger: titleRef.current,
+        start: "top 80%",
+        scrub: false,
+      },
+      ease: "elastic.out",
+    });
+    gsap.from(descriptionRef.current, {
+      y: -40,
+      duration: 2,
+      opacity: 0,
+      delay: 0.3,
+      scrollTrigger: {
+        trigger: descriptionRef.current,
+        start: "top 80%",
+        scrub: false,
+      },
+      ease: "elastic.out",
+    });
+    gsap.from(paragraphRef.current, {
+      y: -40,
+      duration: 2,
+      opacity: 0,
+      delay: 0.5,
+      scrollTrigger: {
+        trigger: paragraphRef.current,
+        start: "top 80%",
+        scrub: false,
+      },
+      ease: "elastic.out",
+    });
+  }, []);
+
   return (
     <div className="w-full bg-[#141418] bg-[url('/src/assets/Images/RectGroup.png')] bg-cover py-20">
       <div className="container mx-auto grid md:grid-cols-2 grid-cols-1 gap-10">
         <div className="flex flex-col md:items-start items-center gap-4 sm:px-0 px-5">
-          <img src={Images.VectorRight} alt="" className="sm:w-auto w-[66px]" />
-          <h2 className="text-white font-extrabold sm:text-3xl text-2xl">
+          <div ref={imageRef} className="sm:w-auto w-[66px]">
+            <img src={Images.VectorRight} alt="" className="" />
+          </div>
+          <h2
+            ref={titleRef}
+            className="text-white font-extrabold sm:text-3xl text-2xl"
+          >
             درباره خانواده وب‌کور
           </h2>
-          <span className="text-white font-bold md:text-start text-center sm:text-base text-[15px]">
+          <span
+            ref={descriptionRef}
+            className="text-white font-bold md:text-start text-center sm:text-base text-[15px]"
+          >
             شرکت تخصصی توسعه نرم‌افزارهای شبکه رمز ارز و مالی
           </span>
-          <p className="text-white text-sm leading-6 md:text-start text-center">
+          <p
+            ref={paragraphRef}
+            className="text-white text-sm leading-6 md:text-start text-center"
+          >
             ما در هسته وب تنها همکار نخواهیم بود. ما عضو یک خانواده هستیم و در
             کنار هم پیشرفت خواهیم کرد. هر روز از هم درس می‌گیریم و مکمل یکدیگر
             خواهیم بود. مشکلاتی که برای هرشخص در این خانواده پیش بیاید، همه با
