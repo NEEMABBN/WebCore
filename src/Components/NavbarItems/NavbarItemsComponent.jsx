@@ -6,7 +6,7 @@ export default function NavbarItemsComponent() {
     <ul className="flex items-center gap-5">
       <li className="">
         <NavLink
-          to="/somePage"
+          to="/Products"
           className={({ isActive }) =>
             `text-nowrap ${isActive ? "text-Primary" : "text-white"}`
           }
@@ -16,7 +16,7 @@ export default function NavbarItemsComponent() {
       </li>
       <li className="">
         <NavLink
-          to="/somePage"
+          to="/Services"
           className={({ isActive }) =>
             `text-nowrap ${isActive ? "text-Primary" : "text-white"}`
           }
@@ -26,7 +26,7 @@ export default function NavbarItemsComponent() {
       </li>
       <li className="">
         <NavLink
-          to="/somePage"
+          to="/TrainingCourse"
           className={({ isActive }) =>
             `text-nowrap ${isActive ? "text-Primary" : "text-white"}`
           }
@@ -36,7 +36,7 @@ export default function NavbarItemsComponent() {
       </li>
       <li className="">
         <NavLink
-          to="/somePage"
+          to="/OurColleagues"
           className={({ isActive }) =>
             `text-nowrap ${isActive ? "text-Primary" : "text-white"}`
           }
@@ -46,7 +46,7 @@ export default function NavbarItemsComponent() {
       </li>
       <li className="">
         <NavLink
-          to="/somePage"
+          to="/ContactUs"
           className={({ isActive }) =>
             `text-nowrap ${isActive ? "text-Primary" : "text-white"}`
           }
@@ -56,7 +56,7 @@ export default function NavbarItemsComponent() {
       </li>
       <li className="">
         <NavLink
-          to="/somePage"
+          to="/Blogs"
           className={({ isActive }) =>
             `text-nowrap ${isActive ? "text-Primary" : "text-white"}`
           }

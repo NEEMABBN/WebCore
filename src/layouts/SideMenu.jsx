@@ -29,7 +29,7 @@ export default function SideMenu({ isMenuOpen }) {
         <li className="w-full flex items-center justify-start gap-3 translate-x-3 hover:translate-x-0 transition-all">
           <span className="w-2 h-[2px] bg-white rounded-full"></span>
           <NavLink
-            to="/somePage"
+            to="/Products"
             className={({ isActive }) =>
               `text-nowrap ${isActive ? "text-Primary" : "text-white"}`
             }
@@ -40,7 +40,7 @@ export default function SideMenu({ isMenuOpen }) {
         <li className="w-full flex items-center justify-start gap-3 translate-x-3 hover:translate-x-0 transition-all">
           <span className="w-2 h-[2px] bg-white rounded-full"></span>
           <NavLink
-            to="/somePage"
+            to="/Services"
             className={({ isActive }) =>
               `text-nowrap ${isActive ? "text-Primary" : "text-white"}`
             }
@@ -51,7 +51,7 @@ export default function SideMenu({ isMenuOpen }) {
         <li className="w-full flex items-center justify-start gap-3 translate-x-3 hover:translate-x-0 transition-all">
           <span className="w-2 h-[2px] bg-white rounded-full"></span>
           <NavLink
-            to="/somePage"
+            to="/TrainingCourse"
             className={({ isActive }) =>
               `text-nowrap ${isActive ? "text-Primary" : "text-white"}`
             }
@@ -62,7 +62,7 @@ export default function SideMenu({ isMenuOpen }) {
         <li className="w-full flex items-center justify-start gap-3 translate-x-3 hover:translate-x-0 transition-all">
           <span className="w-2 h-[2px] bg-white rounded-full"></span>
           <NavLink
-            to="/somePage"
+            to="/OurColleagues"
             className={({ isActive }) =>
               `text-nowrap ${isActive ? "text-Primary" : "text-white"}`
             }
@@ -73,7 +73,7 @@ export default function SideMenu({ isMenuOpen }) {
         <li className="w-full flex items-center justify-start gap-3 translate-x-3 hover:translate-x-0 transition-all">
           <span className="w-2 h-[2px] bg-white rounded-full"></span>
           <NavLink
-            to="/somePage"
+            to="/ContactUs"
             className={({ isActive }) =>
               `text-nowrap ${isActive ? "text-Primary" : "text-white"}`
             }
@@ -84,7 +84,7 @@ export default function SideMenu({ isMenuOpen }) {
         <li className="w-full flex items-center justify-start gap-3 translate-x-3 hover:translate-x-0 transition-all">
           <span className="w-2 h-[2px] bg-white rounded-full"></span>
           <NavLink
-            to="/somePage"
+            to="/Blogs"
             className={({ isActive }) =>
               `text-nowrap ${isActive ? "text-Primary" : "text-white"}`
             }
