@@ -5,17 +5,19 @@ import { GoHeartFill } from "react-icons/go";
 export default function EachCourseItemComponent({
   image,
   title,
+  NickTeach,
   teacher,
   description,
   price,
   likes,
+  Unit,
 }) {
   return (
     <div className="flex flex-col items-start gap-2 border-l border-solid border-[#4C4E59] px-4 sm:group sm:hover:scale-105 transition-all relative">
       <img src={image} alt="" className="rounded-t-2xl" />
       <h3 className="text-white font-extrabold text-xl">{title}</h3>
       <div className="flex items-center">
-        <span className="text-white">مدرس :</span>
+        <span className="text-white">{NickTeach}</span>
         <span className="text-white">{teacher}</span>
       </div>
       <p className="text-[#A9C1D4] text-sm">{description}</p>
@@ -26,7 +28,7 @@ export default function EachCourseItemComponent({
         </div>
         <div className="flex items-center gap-1">
           <span className="text-white font-bold">{price}</span>
-          <span className="text-[#C8DAEA]">تومان</span>
+          <span className="text-[#C8DAEA]">{Unit}</span>
           <BsFillArrowUpRightCircleFill className="group-hover:block hidden text-white text-2xl transition-all px-1" />
         </div>
       </button>

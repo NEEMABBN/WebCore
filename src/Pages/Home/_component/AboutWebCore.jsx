@@ -5,6 +5,8 @@ import { useInView } from "react-intersection-observer";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
+import { useTranslation } from "react-i18next";
+import i18n from "../../../i18n";
 
 export default function AboutWebCore() {
   const [count1, setCount1] = useState();
@@ -15,6 +17,7 @@ export default function AboutWebCore() {
   const titleRef = useRef(null);
   const descriptionRef = useRef(null);
   const paragraphRef = useRef(null);
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (inView) {
@@ -114,24 +117,19 @@ export default function AboutWebCore() {
             ref={titleRef}
             className="text-white font-extrabold sm:text-3xl text-2xl"
           >
-            درباره خانواده وب‌کور
+            {t("HomeFamilyTitle")}
           </h2>
           <span
             ref={descriptionRef}
             className="text-white font-bold md:text-start text-center sm:text-base text-[15px]"
           >
-            شرکت تخصصی توسعه نرم‌افزارهای شبکه رمز ارز و مالی
+            {t("HomeFamilySubTitle")}
           </span>
           <p
             ref={paragraphRef}
             className="text-white text-sm leading-6 md:text-start text-center"
           >
-            ما در هسته وب تنها همکار نخواهیم بود. ما عضو یک خانواده هستیم و در
-            کنار هم پیشرفت خواهیم کرد. هر روز از هم درس می‌گیریم و مکمل یکدیگر
-            خواهیم بود. مشکلاتی که برای هرشخص در این خانواده پیش بیاید، همه با
-            هم برای رفع مشکل آن تلاش خواهیم کرد. ما در هسته وب زندگی می‌کنیم.
-            هیچ سدی نمی تواند مانع پیشرفت ما شود و هر روز در حال یادگرفتن
-            اتفاقات جدید دنیای تکنولوژی هستیم.
+            {t("HomeFamilyDesc")}
           </p>
         </div>
 
@@ -140,7 +138,9 @@ export default function AboutWebCore() {
             <span className="DanaBold py-3 sm:text-[55px] text-4xl text-center bg-clip-text text-transparent fill-transparent bg-gradient-to-l from-white to-[#58F4FF]">
               {formattedCount1}+
             </span>
-            <span className="text-[#A9C1D4] text-center">اعضای خانواده ما</span>
+            <span className="text-[#A9C1D4] text-center">
+              {t("NumberOfFamilyTitle")}
+            </span>
           </div>
           <span className="lg:w-[1px] w-full lg:h-[100px] h-[1px] bg-[#4C4E59]"></span>
           <div className="flex md:flex-col md:w-auto w-full justify-between items-center">
@@ -148,7 +148,7 @@ export default function AboutWebCore() {
               {formattedCount2}+
             </span>
             <span className="text-[#A9C1D4] text-center">
-              محصولات تولید شده
+              {t("NumberOfProductsTitle")}
             </span>
           </div>
           <span className="lg:w-[1px] w-full lg:h-[100px] h-[1px] bg-[#4C4E59]"></span>
@@ -160,13 +160,13 @@ export default function AboutWebCore() {
               {formattedCount3}+
             </span>
             <span className="text-[#A9C1D4] text-center">
-              پروژه موفق داخلی و بین‌المللی
+              {t("NumberOfProjectTitle")}
             </span>
           </div>
         </div>
 
         <CustomButtonComponent custom="w-full flex items-center md:justify-start justify-center">
-          همکاری با ما
+          {t("HomeFamilyBtn")}
         </CustomButtonComponent>
       </div>
     </div>

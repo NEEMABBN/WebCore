@@ -8,9 +8,12 @@ import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import { useTranslation } from "react-i18next";
+import i18n from "../../../i18n";
 
 export default function TrainingCourses() {
   const swiperRef = useRef(null);
+  const { t } = useTranslation();
 
   const NextSlide = () => {
     swiperRef.current.swiper.slideNext();
@@ -23,7 +26,7 @@ export default function TrainingCourses() {
     <div className="container mx-auto flex flex-col items-center justify-center">
       <TemplateV1
         className="pb-20 gap-9"
-        title="دوره‌های آموزشی"
+        title={t("HomeCourseTitle")}
         CustomBody="flex items-center py-5"
         body={
           <>
@@ -51,9 +54,11 @@ export default function TrainingCourses() {
               <SwiperSlide>
                 <EachCourseItemComponent
                   image={Images.CourseImage1}
-                  title="دوره آموزش نکست جی‌اس"
-                  teacher="محمد محمدی"
-                  description="دوره آموزش Next.js به شما کمک می‌کند SSR را برای React به سادگی راه‌اندازی کنید و یک وبسایت با سئو مناسب با React بوجود آورید."
+                  title={t("HomeCourseSlideTitle")}
+                  teacher={t("HomeCourseSlideSubName")}
+                  NickTeach={t("HomeCourseSlideName")}
+                  description={t("HomeCourseSlideDesc")}
+                  Unit={t("HomeCourseSlidePriceUnit")}
                   price={"۱۳۰.۰۰۰"}
                   likes={"۱۲"}
                 />
@@ -61,9 +66,11 @@ export default function TrainingCourses() {
               <SwiperSlide>
                 <EachCourseItemComponent
                   image={Images.CourseImage2}
-                  title="دوره آموزش نکست جی‌اس"
-                  teacher="محمد محمدی"
-                  description="دوره آموزش Next.js به شما کمک می‌کند SSR را برای React به سادگی راه‌اندازی کنید و یک وبسایت با سئو مناسب با React بوجود آورید."
+                  title={t("HomeCourseSlideTitle")}
+                  teacher={t("HomeCourseSlideSubName")}
+                  NickTeach={t("HomeCourseSlideName")}
+                  description={t("HomeCourseSlideDesc")}
+                  Unit={t("HomeCourseSlidePriceUnit")}
                   price={"۱۳۰.۰۰۰"}
                   likes={"۱۲"}
                 />
@@ -71,9 +78,11 @@ export default function TrainingCourses() {
               <SwiperSlide>
                 <EachCourseItemComponent
                   image={Images.CourseImage3}
-                  title="دوره آموزش نکست جی‌اس"
-                  teacher="محمد محمدی"
-                  description="دوره آموزش Next.js به شما کمک می‌کند SSR را برای React به سادگی راه‌اندازی کنید و یک وبسایت با سئو مناسب با React بوجود آورید."
+                  title={t("HomeCourseSlideTitle")}
+                  teacher={t("HomeCourseSlideSubName")}
+                  NickTeach={t("HomeCourseSlideName")}
+                  description={t("HomeCourseSlideDesc")}
+                  Unit={t("HomeCourseSlidePriceUnit")}
                   price={"۱۳۰.۰۰۰"}
                   likes={"۱۲"}
                 />
@@ -81,9 +90,11 @@ export default function TrainingCourses() {
               <SwiperSlide>
                 <EachCourseItemComponent
                   image={Images.CourseImage2}
-                  title="دوره آموزش نکست جی‌اس"
-                  teacher="محمد محمدی"
-                  description="دوره آموزش Next.js به شما کمک می‌کند SSR را برای React به سادگی راه‌اندازی کنید و یک وبسایت با سئو مناسب با React بوجود آورید."
+                  title={t("HomeCourseSlideTitle")}
+                  teacher={t("HomeCourseSlideSubName")}
+                  NickTeach={t("HomeCourseSlideName")}
+                  description={t("HomeCourseSlideDesc")}
+                  Unit={t("HomeCourseSlidePriceUnit")}
                   price={"۱۳۰.۰۰۰"}
                   likes={"۱۲"}
                 />
@@ -91,9 +102,11 @@ export default function TrainingCourses() {
               <SwiperSlide>
                 <EachCourseItemComponent
                   image={Images.CourseImage1}
-                  title="دوره آموزش نکست جی‌اس"
-                  teacher="محمد محمدی"
-                  description="دوره آموزش Next.js به شما کمک می‌کند SSR را برای React به سادگی راه‌اندازی کنید و یک وبسایت با سئو مناسب با React بوجود آورید."
+                  title={t("HomeCourseSlideTitle")}
+                  teacher={t("HomeCourseSlideSubName")}
+                  NickTeach={t("HomeCourseSlideName")}
+                  description={t("HomeCourseSlideDesc")}
+                  Unit={t("HomeCourseSlidePriceUnit")}
                   price={"۱۳۰.۰۰۰"}
                   likes={"۱۲"}
                 />
@@ -101,9 +114,11 @@ export default function TrainingCourses() {
               <SwiperSlide>
                 <EachCourseItemComponent
                   image={Images.CourseImage3}
-                  title="دوره آموزش نکست جی‌اس"
-                  teacher="محمد محمدی"
-                  description="دوره آموزش Next.js به شما کمک می‌کند SSR را برای React به سادگی راه‌اندازی کنید و یک وبسایت با سئو مناسب با React بوجود آورید."
+                  title={t("HomeCourseSlideTitle")}
+                  teacher={t("HomeCourseSlideSubName")}
+                  NickTeach={t("HomeCourseSlideName")}
+                  description={t("HomeCourseSlideDesc")}
+                  Unit={t("HomeCourseSlidePriceUnit")}
                   price={"۱۳۰.۰۰۰"}
                   likes={"۱۲"}
                 />
@@ -121,7 +136,7 @@ export default function TrainingCourses() {
               <FaAngleRight />
             </button>
             <button className="border-solid border border-[#4C4E59] text-white rounded-full py-3 px-5">
-              مشاهده همه
+              {t("HomeCourseSlideBtn")}
             </button>
             <button
               onClick={PrevSlide}

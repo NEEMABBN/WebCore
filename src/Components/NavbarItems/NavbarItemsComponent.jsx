@@ -1,7 +1,10 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 export default function NavbarItemsComponent() {
+  const { t } = useTranslation();
+
   return (
     <ul className="flex items-center gap-5">
       <li className="">
@@ -11,7 +14,7 @@ export default function NavbarItemsComponent() {
             `text-nowrap ${isActive ? "text-Primary" : "text-white"}`
           }
         >
-          محصولات
+          {t("NavbarProducts")}
         </NavLink>
       </li>
       <li className="">
@@ -21,7 +24,7 @@ export default function NavbarItemsComponent() {
             `text-nowrap ${isActive ? "text-Primary" : "text-white"}`
           }
         >
-          خدمات
+          {t("NavbarServices")}
         </NavLink>
       </li>
       <li className="">
@@ -31,7 +34,7 @@ export default function NavbarItemsComponent() {
             `text-nowrap ${isActive ? "text-Primary" : "text-white"}`
           }
         >
-          دوره‌های آموزشی
+          {t("NavbarTrainingCourse")}
         </NavLink>
       </li>
       <li className="">
@@ -41,7 +44,7 @@ export default function NavbarItemsComponent() {
             `text-nowrap ${isActive ? "text-Primary" : "text-white"}`
           }
         >
-          همکارامون
+          {t("NavbarColleagues")}
         </NavLink>
       </li>
       <li className="">
@@ -51,7 +54,7 @@ export default function NavbarItemsComponent() {
             `text-nowrap ${isActive ? "text-Primary" : "text-white"}`
           }
         >
-          تماس با ما
+          {t("NavbarContactUs")}
         </NavLink>
       </li>
       <li className="">
@@ -61,7 +64,7 @@ export default function NavbarItemsComponent() {
             `text-nowrap ${isActive ? "text-Primary" : "text-white"}`
           }
         >
-          بلاگ
+          {t("NavbarBlog")}
         </NavLink>
       </li>
     </ul>

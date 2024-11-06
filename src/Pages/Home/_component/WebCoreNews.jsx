@@ -8,9 +8,12 @@ import Images from "../../../Setting/Images";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import { useTranslation } from "react-i18next";
+import i18n from "../../../i18n";
 
 export default function WebCoreNews() {
   const swiperRef = useRef(null);
+  const { t } = useTranslation();
 
   const NextSlide = () => {
     swiperRef.current.swiper.slideNext();
@@ -24,7 +27,7 @@ export default function WebCoreNews() {
       <div className="w-full flex items-center justify-center px-5">
         <TemplateV1
           className="py-20 gap-9"
-          title="اخبار"
+          title={t("HomeNewsTitle")}
           CustomBody=""
           body={
             <>
@@ -54,66 +57,66 @@ export default function WebCoreNews() {
               >
                 <SwiperSlide>
                   <EachNewsBoxItemComponent
-                    title="افتتاح استودیو تولیدمحتوای هسته‌وب ایرانیان"
+                    title={t("HomeNewsSlideTitle1")}
                     image={Images.NewsImageV1}
                     CustomMiniBg="bg-[#354447]"
-                    category="خبر"
+                    category={t("HomeNewsSlideCategory1")}
                   />
                 </SwiperSlide>
                 <SwiperSlide>
                   <EachNewsBoxItemComponent
-                    title="حضور مدیر و کارشناسان هسته وب ایرانیان در اولین نمایشگاه ارز دیجیتال و متاورس"
+                    title={t("HomeNewsSlideTitle2")}
                     image={Images.NewsImageV2}
                     CustomMiniBg="bg-[#473538]"
-                    category="بلاگ"
+                    category={t("HomeNewsSlideCategory2")}
                   />
                 </SwiperSlide>
                 <SwiperSlide>
                   <EachNewsBoxItemComponent
-                    title="افتتاح استودیو تولیدمحتوای هسته‌وب ایرانیان"
+                    title={t("HomeNewsSlideTitle1")}
                     image={Images.NewsImageV1}
                     CustomMiniBg="bg-[#354447]"
-                    category="خبر"
+                    category={t("HomeNewsSlideCategory1")}
                   />
                 </SwiperSlide>
                 <SwiperSlide>
                   <EachNewsBoxItemComponent
-                    title="حضور مدیر و کارشناسان هسته وب ایرانیان در اولین نمایشگاه ارز دیجیتال و متاورس"
+                    title={t("HomeNewsSlideTitle2")}
                     image={Images.NewsImageV2}
                     CustomMiniBg="bg-[#473538]"
-                    category="بلاگ"
+                    category={t("HomeNewsSlideCategory2")}
                   />
                 </SwiperSlide>
                 <SwiperSlide>
                   <EachNewsBoxItemComponent
-                    title="افتتاح استودیو تولیدمحتوای هسته‌وب ایرانیان"
+                    title={t("HomeNewsSlideTitle1")}
                     image={Images.NewsImageV1}
                     CustomMiniBg="bg-[#354447]"
-                    category="خبر"
+                    category={t("HomeNewsSlideCategory1")}
                   />
                 </SwiperSlide>
                 <SwiperSlide>
                   <EachNewsBoxItemComponent
-                    title="حضور مدیر و کارشناسان هسته وب ایرانیان در اولین نمایشگاه ارز دیجیتال و متاورس"
+                    title={t("HomeNewsSlideTitle2")}
                     image={Images.NewsImageV2}
                     CustomMiniBg="bg-[#473538]"
-                    category="بلاگ"
+                    category={t("HomeNewsSlideCategory2")}
                   />
                 </SwiperSlide>
                 <SwiperSlide>
                   <EachNewsBoxItemComponent
-                    title="افتتاح استودیو تولیدمحتوای هسته‌وب ایرانیان"
+                    title={t("HomeNewsSlideTitle1")}
                     image={Images.NewsImageV1}
                     CustomMiniBg="bg-[#354447]"
-                    category="خبر"
+                    category={t("HomeNewsSlideCategory1")}
                   />
                 </SwiperSlide>
                 <SwiperSlide>
                   <EachNewsBoxItemComponent
-                    title="حضور مدیر و کارشناسان هسته وب ایرانیان در اولین نمایشگاه ارز دیجیتال و متاورس"
+                    title={t("HomeNewsSlideTitle2")}
                     image={Images.NewsImageV2}
                     CustomMiniBg="bg-[#473538]"
-                    category="بلاگ"
+                    category={t("HomeNewsSlideCategory2")}
                   />
                 </SwiperSlide>
               </Swiper>
@@ -130,7 +133,7 @@ export default function WebCoreNews() {
                 <FaAngleRight />
               </button>
               <button className="border-solid border border-[#4C4E59] text-white rounded-full py-3 px-5">
-                مشاهده همه
+                {t("HomeNewsBtn")}
               </button>
               <button
                 onClick={PrevSlide}

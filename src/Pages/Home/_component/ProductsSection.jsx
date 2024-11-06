@@ -7,6 +7,8 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import TextAnimations from "../../../Components/Animations/TextAnimations";
 gsap.registerPlugin(ScrollTrigger);
+import { useTranslation } from "react-i18next";
+import i18n from "../../../i18n";
 
 export default function ProductsSection() {
   const paragraphRef = useRef(null);
@@ -16,6 +18,7 @@ export default function ProductsSection() {
   const box2Ref = useRef(null);
   const box3Ref = useRef(null);
   const box4Ref = useRef(null);
+  const { t } = useTranslation();
 
   useEffect(() => {
     gsap.from(paragraphRef.current, {
@@ -101,7 +104,7 @@ export default function ProductsSection() {
         <div className="lg:w-1/2 w-full flex flex-col lg:items-start items-center lg:gap-6 gap-12 sm:px-0 px-5">
           <div className="flex lg:flex-row flex-col-reverse items-center gap-3">
             <h2 className="text-white font-extrabold sm:text-3xl text-2xl">
-              <TextAnimations text="محصولات هسته‌وب" />
+              <TextAnimations text={t("HomeProductTitle")} />
             </h2>
             <img
               src={Images.VectorRight}
@@ -127,9 +130,13 @@ export default function ProductsSection() {
                   <img src={Images.YaraShop} alt="" className="w-full" />
                   <div className="bg-[#202026] flex items-center rounded-tr-2xl absolute bottom-0 left-0 gap-2 p-3 group-hover:px-7 transition-all">
                     <BsFillArrowDownLeftCircleFill className="absolute text-white group-hover:block hidden top-[-0.5rem] right-[-0.5rem] transition-all text-3xl" />
-                    <span className="text-[#A9C1D4]">اسکریپت</span>
+                    <span className="text-[#A9C1D4]">
+                      {t("HomeProductImgTitle1")}
+                    </span>
                     <span className="text-white">/</span>
-                    <span className="text-white">یاراشاپ</span>
+                    <span className="text-white">
+                      {t("HomeProductImgValue1")}
+                    </span>
                   </div>
                 </div>
               </SwiperSlide>
@@ -138,9 +145,13 @@ export default function ProductsSection() {
                   <img src={Images.YaraShop} alt="" className="w-full" />
                   <div className="bg-[#202026] flex items-center rounded-tr-2xl absolute bottom-0 left-0 gap-2 p-3 group-hover:px-7 transition-all">
                     <BsFillArrowDownLeftCircleFill className="absolute text-white group-hover:block hidden top-[-0.5rem] right-[-0.5rem] transition-all text-3xl" />
-                    <span className="text-[#A9C1D4]">اپلیکیشن</span>
+                    <span className="text-[#A9C1D4]">
+                      {t("HomeProductImgTitle2")}
+                    </span>
                     <span className="text-white">/</span>
-                    <span className="text-white">خانه هوشمند</span>
+                    <span className="text-white">
+                      {t("HomeProductImgValue2")}
+                    </span>
                   </div>
                 </div>
               </SwiperSlide>
@@ -149,9 +160,13 @@ export default function ProductsSection() {
                   <img src={Images.YaraShop} alt="" className="w-full" />
                   <div className="bg-[#202026] flex items-center rounded-tr-2xl absolute bottom-0 left-0 gap-2 p-3 group-hover:px-7 transition-all">
                     <BsFillArrowDownLeftCircleFill className="absolute text-white group-hover:block hidden top-[-0.5rem] right-[-0.5rem] transition-all text-3xl" />
-                    <span className="text-[#A9C1D4]">وبسایت</span>
+                    <span className="text-[#A9C1D4]">
+                      {t("HomeProductImgTitle3")}
+                    </span>
                     <span className="text-white">/</span>
-                    <span className="text-white">خانه هوشمند</span>
+                    <span className="text-white">
+                      {t("HomeProductImgValue2")}
+                    </span>
                   </div>
                 </div>
               </SwiperSlide>
@@ -160,9 +175,13 @@ export default function ProductsSection() {
                   <img src={Images.YaraShop} alt="" className="w-full" />
                   <div className="bg-[#202026] flex items-center rounded-tr-2xl absolute bottom-0 left-0 gap-2 p-3 group-hover:px-7 transition-all">
                     <BsFillArrowDownLeftCircleFill className="absolute text-white group-hover:block hidden top-[-0.5rem] right-[-0.5rem] transition-all text-3xl" />
-                    <span className="text-[#A9C1D4]">اپلیکیشن</span>
+                    <span className="text-[#A9C1D4]">
+                      {t("HomeProductImgTitle2")}
+                    </span>
                     <span className="text-white">/</span>
-                    <span className="text-white">خانه هوشمند</span>
+                    <span className="text-white">
+                      {t("HomeProductImgValue2")}
+                    </span>
                   </div>
                 </div>
               </SwiperSlide>
@@ -172,25 +191,25 @@ export default function ProductsSection() {
             ref={paragraphRef}
             className="text-white leading-6 lg:text-start text-center"
           >
-            <TextAnimations text="محصولاتی که در این بخش مشاهده می کنید محصولاتی هستند که به طور عمومی به فروش می رسند و شما میتوانید محصولات را خریداری نمایید. از امکان نمایش محصولات اختصاصی کاربران در این بخش معذوریم. محصولاتی که در این بخش مشاهده می کنید محصولاتی هستند که به طور عمومی به فروش می رسند و شما میتوانید محصولات را خریداری نمایید. از امکان نمایش محصولات اختصاصی کاربران در این بخش معذوریم" />
+            <TextAnimations text={t("HomeProductDesc")} />
           </p>
           <div
             ref={boxRef}
             className="bg-[#333546] flex sm:flex-row flex-col sm:gap-0 gap-5 items-center justify-between rounded-2xl p-3 w-full"
           >
-            <span className="text-[#A9C1D4]">محصولات ما در زمینه :</span>
+            <span className="text-[#A9C1D4]">{t("HomeProductSubTitle")}</span>
             <div className="sm:w-auto w-full flex items-center sm:justify-normal justify-between sm:gap-3 sm:px-0 px-2">
               <span className="text-white hover:text-Primary transition-all">
-                #فروشگاهی
+                {t("HomeProductTag1")}
               </span>
               <span className="text-white hover:text-Primary transition-all">
-                #رزومه
+                {t("HomeProductTag2")}
               </span>
               <span className="text-white hover:text-Primary transition-all">
-                #رزومه
+                {t("HomeProductTag3")}
               </span>
               <span className="text-white hover:text-Primary transition-all">
-                #صرافی
+                {t("HomeProductTag4")}
               </span>
             </div>
           </div>
@@ -198,7 +217,7 @@ export default function ProductsSection() {
             ref={buttonRef}
             className="bg-Secoundray rounded-3xl border-solid border-2 border-[#4C4E59] text-white py-2 px-3"
           >
-            مشاهده همه
+            {t("HomeProductBtn")}
           </button>
         </div>
 
@@ -211,9 +230,11 @@ export default function ProductsSection() {
               <img src={Images.YaraShop} alt="" className="" />
               <div className="bg-[#202026] flex items-center rounded-tr-2xl absolute bottom-0 left-0 gap-2 p-3 group-hover:px-7 transition-all">
                 <BsFillArrowDownLeftCircleFill className="absolute text-white group-hover:block hidden top-[-0.5rem] right-[-0.5rem] transition-all text-3xl" />
-                <span className="text-[#A9C1D4]">اسکریپت</span>
+                <span className="text-[#A9C1D4]">
+                  {t("HomeProductImgTitle1")}
+                </span>
                 <span className="text-white">/</span>
-                <span className="text-white">یاراشاپ</span>
+                <span className="text-white">{t("HomeProductImgValue1")}</span>
               </div>
             </div>
             <div
@@ -223,9 +244,11 @@ export default function ProductsSection() {
               <img src={Images.AppXHomeV1} alt="" className="" />
               <div className="bg-[#202026] flex items-center rounded-tr-2xl absolute bottom-0 left-0 gap-2 p-3 group-hover:px-7 transition-all">
                 <BsFillArrowDownLeftCircleFill className="absolute text-white group-hover:block hidden top-[-0.5rem] right-[-0.5rem] transition-all text-3xl" />
-                <span className="text-[#A9C1D4]">اپلیکیشن</span>
+                <span className="text-[#A9C1D4]">
+                  {t("HomeProductImgTitle2")}
+                </span>
                 <span className="text-white">/</span>
-                <span className="text-white">خانه هوشمند</span>
+                <span className="text-white">{t("HomeProductImgValue2")}</span>
               </div>
             </div>
           </div>
@@ -238,9 +261,11 @@ export default function ProductsSection() {
               <img src={Images.WebXHome} alt="" className="" />
               <div className="bg-[#202026] flex items-center rounded-tr-2xl absolute bottom-0 left-0 gap-2 p-3 group-hover:px-7 transition-all">
                 <BsFillArrowDownLeftCircleFill className="absolute text-white group-hover:block hidden top-[-0.5rem] right-[-0.5rem] transition-all text-3xl" />
-                <span className="text-[#A9C1D4]">وبسایت</span>
+                <span className="text-[#A9C1D4]">
+                  {t("HomeProductImgTitle3")}
+                </span>
                 <span className="text-white">/</span>
-                <span className="text-white">خانه هوشمند</span>
+                <span className="text-white">{t("HomeProductImgValue2")}</span>
               </div>
             </div>
 
@@ -251,9 +276,11 @@ export default function ProductsSection() {
               <img src={Images.AppXHomeV2} alt="" className="" />
               <div className="bg-[#202026] flex items-center rounded-tr-2xl absolute bottom-0 left-0 gap-2 p-3 group-hover:px-7 transition-all">
                 <BsFillArrowDownLeftCircleFill className="absolute text-white group-hover:block hidden top-[-0.5rem] right-[-0.5rem] transition-all text-3xl" />
-                <span className="text-[#A9C1D4]">اپلیکیشن</span>
+                <span className="text-[#A9C1D4]">
+                  {t("HomeProductImgTitle2")}
+                </span>
                 <span className="text-white">/</span>
-                <span className="text-white">خانه هوشمند</span>
+                <span className="text-white">{t("HomeProductImgValue2")}</span>
               </div>
             </div>
           </div>

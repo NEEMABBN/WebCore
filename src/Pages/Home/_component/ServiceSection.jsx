@@ -5,6 +5,8 @@ import ServiceBoxItemComponent from "../../../Components/ServiceBoxItem/ServiceB
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
+import { useTranslation } from "react-i18next";
+import i18n from "../../../i18n";
 
 export default function ServiceSection() {
   const imagesRef = useRef(null);
@@ -14,6 +16,7 @@ export default function ServiceSection() {
   const box2Ref = useRef(null);
   const box3Ref = useRef(null);
   const box4Ref = useRef(null);
+  const { t } = useTranslation();
 
   useEffect(() => {
     gsap.from(imagesRef.current, {
@@ -113,14 +116,14 @@ export default function ServiceSection() {
         </div>
         <h2
           ref={titleRef}
-          className="sm:text-3xl text-xl text-white font-extrabold"
+          className="sm:text-3xl text-xl text-white font-extrabold text-center"
         >
-          ما در وب‌کور چیکار میکنیم؟
+          {t("HomeServiceTitle")}
         </h2>
         <p ref={descRef} className="text-white text-center">
-          تمامی خدمات در بهترین کیفیت توسط متخصصین این حوزه درحال انجام است
+          {t("HomeServiceDesc")}
         </p>
-        <CustomButtonComponent>تماس با ما</CustomButtonComponent>
+        <CustomButtonComponent>{t("HomeServiceBtn")}</CustomButtonComponent>
       </div>
 
       <div className="md:container md:mx-auto w-full md:px-0 px-4 md:flex-row flex-col md:gap-0 gap-4 flex items-center justify-between md:absolute static">
@@ -128,15 +131,15 @@ export default function ServiceSection() {
           <ServiceBoxItemComponent
             ref={box1Ref}
             icon={Images.UiUxIcon}
-            title="طراحی رابط و تجربه کاربری"
-            description="ما در هسته وب تنها همکار نخواهیم بود. ما عضو یک خانواده هستیم و در کنار هم پیشرفت خواهیم کرد."
+            title={t("HomeServiceCardTitle1")}
+            description={t("HomeServiceCardDesc1")}
             customClass="md:rotate-[5deg] md:w-[23rem] w-full"
           />
           <ServiceBoxItemComponent
             ref={box2Ref}
             icon={Images.WebIcon}
-            title="وبسایت"
-            description="ما در هسته وب تنها همکار نخواهیم بود. ما عضو یک خانواده هستیم و در کنار هم پیشرفت خواهیم کرد."
+            title={t("HomeServiceCardTitle2")}
+            description={t("HomeServiceCardDesc2")}
             customClass="md:rotate-[-5deg] md:w-[23rem] w-full"
           />
         </div>
@@ -144,15 +147,15 @@ export default function ServiceSection() {
           <ServiceBoxItemComponent
             ref={box3Ref}
             icon={Images.MobileIcon}
-            title="اپلیکیشن موبایل"
-            description="ما در هسته وب تنها همکار نخواهیم بود. ما عضو یک خانواده هستیم و در کنار هم پیشرفت خواهیم کرد."
+            title={t("HomeServiceCardTitle3")}
+            description={t("HomeServiceCardDesc3")}
             customClass="md:rotate-[-5deg] md:w-[23rem] w-full"
           />
           <ServiceBoxItemComponent
             ref={box4Ref}
             icon={Images.ContentIcon}
-            title="محتوا سازی"
-            description="ما در هسته وب تنها همکار نخواهیم بود. ما عضو یک خانواده هستیم و در کنار هم پیشرفت خواهیم کرد."
+            title={t("HomeServiceCardTitle4")}
+            description={t("HomeServiceCardDesc4")}
             customClass="md:rotate-[5deg] md:w-[23rem] w-full"
           />
         </div>

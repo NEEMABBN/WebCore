@@ -2,8 +2,11 @@ import React, { useEffect, useRef } from "react";
 import Images from "../Setting/Images";
 import { Link, NavLink } from "react-router-dom";
 import anime from "animejs";
+import { useTranslation } from "react-i18next";
+import i18n from "../i18n";
 
 export default function Footer() {
+  const { t } = useTranslation();
   const AnimatedText = ({ text }) => {
     const textRef = useRef(null);
     const hasAnimated = useRef(false);
@@ -77,7 +80,7 @@ export default function Footer() {
                 `${isActive ? "text-Primary" : "text-white"} text-nowrap`
               }
             >
-              خدمات
+              {t("NavbarServices")}
             </NavLink>
           </li>
           <li>
@@ -87,7 +90,7 @@ export default function Footer() {
                 `${isActive ? "text-Primary" : "text-white"} text-nowrap`
               }
             >
-              محصولات
+              {t("NavbarProducts")}
             </NavLink>
           </li>
           <li>
@@ -97,7 +100,7 @@ export default function Footer() {
                 `${isActive ? "text-Primary" : "text-white"} text-nowrap`
               }
             >
-              دوره‌های آموزشی
+              {t("NavbarTrainingCourse")}
             </NavLink>
           </li>
         </ul>
@@ -109,7 +112,7 @@ export default function Footer() {
                 `${isActive ? "text-Primary" : "text-white"} text-nowrap`
               }
             >
-              همکارامون
+              {t("NavbarColleagues")}
             </NavLink>
           </li>
           <li>
@@ -119,7 +122,7 @@ export default function Footer() {
                 `${isActive ? "text-Primary" : "text-white"} text-nowrap`
               }
             >
-              تماس با ما
+              {t("NavbarContactUs")}
             </NavLink>
           </li>
           <li>
@@ -129,28 +132,27 @@ export default function Footer() {
                 `${isActive ? "text-Primary" : "text-white"} text-nowrap`
               }
             >
-              بلاگ
+              {t("NavbarBlog")}
             </NavLink>
           </li>
         </ul>
       </div>
       <div className="container mx-auto flex md:flex-row flex-col md:items-start items-center justify-between border-solid border-t-2 border-[#4C4E59] py-5">
         <p className="text-[#C8DAEA] text-sm leading-6 xl:w-[35%] md:w-[45%] w-full md:text-start text-center md:border-none border-solid border-b-2 border-[#4C4E59] md:p-0 px-5 pb-5">
-          <AnimatedText text="شرکت ایده گستران هوشمند طبرستان یک شرکت پیشرو با ارائه خدمات در حوزه‌های وب، اپلیکیشن موبایل، تحلیل داده، بازی سازی و تولید محتوا است که برای اولین بار در سال ۱۳۸۵ شروع به کار کرده است و در ابتدای آغاز کار خود بر تولید نرم افزارهای تخصصی مالی متمرکز بوده است. تیم هسته وب ایرانیان دارای با استعدادترین و تواناترین افراد در حوزه فناوری بوده و با توجه به اهداف بزرگی که برای آینده خود در نظر گرفته است به‌طور مداوم در حال بهبود کیفیت خدمات، محصولات و توسعه تیم خود است و راهی طولانی و دشوار را برای کسب تجربه، دانش و مدیریت منابع انسانی در حوزه فناوری‌ پیموده است" />
+          <AnimatedText text={t("FooterDesc")} />
         </p>
         <div className="xl:w-[35%] md:w-[45%] w-full flex flex-col md:justify-start justify-normal md:items-start items-center md:gap-4 sm:gap-2 gap-4 md:pt-0 pt-5">
           <div className="flex items-center gap-2">
             <img src={Images.LocationIcon} alt="" className="" />
             <span className="text-[#C8DAEA] text-sm">
-              مازندران، ساری، خ جمهوری، ساختمان پارک علم و فناوری (واحد ۳۰۹ و
-              ۱۰۴)
+              {t("FooterLocation")}
             </span>
           </div>
 
           <div className=" flex sm:flex-row flex-col sm:items-center items-start sm:gap-0 gap-4 w-full md:justify-between justify-evenly md:pb-0 pb-5">
             <div className="md:w-full flex flex-row items-center gap-2">
               <img src={Images.CallIcon} alt="" className="" />
-              <span className="text-[#C8DAEA] text-sm">۰۱۱-۴۴۴۳۰۳۸۰</span>
+              <span className="text-[#C8DAEA] text-sm">{t("FooterPhone")}</span>
             </div>
             <div className="md:w-full flex flex-row items-center gap-2">
               <img src={Images.MessageIcon} alt="" className="" />
@@ -159,7 +161,7 @@ export default function Footer() {
           </div>
 
           <div className="md:w-auto w-full flex flex-col md:items-start sm:items-center items-start gap-6 md:mt-6 md:border-none border-solid border-t-2 border-[#4C4E59] md:pt-0 pt-5 sm:px-0 px-3">
-            <span className="text-white">گواهینامه‌ها :</span>
+            <span className="text-white">{t("FooterCertificates")}</span>
             <div className="sm:w-auto w-full sm:justify-normal justify-between flex items-center gap-7">
               <img
                 src={Images.Certificate1}

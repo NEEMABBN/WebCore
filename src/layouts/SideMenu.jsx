@@ -1,8 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FaXmark } from "react-icons/fa6";
 import { NavLink } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import i18n from "../i18n";
 
 export default function SideMenu({ isMenuOpen }) {
+  const { t } = useTranslation();
+
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+    document.documentElement.dir = lng === "fa" ? "rtl" : "ltr";
+  };
+  useEffect(() => {
+    document.documentElement.dir = i18n.language === "fa" ? "rtl" : "ltr";
+  }, [i18n.language]);
   return (
     <div
       className={`absolute top-0 ${
@@ -11,7 +22,12 @@ export default function SideMenu({ isMenuOpen }) {
     >
       <div className="w-full flex items-center justify-between">
         <FaXmark className="text-white text-xl" />
-        <button className="text-white">FA</button>
+        <button
+          onClick={() => changeLanguage(i18n.language === "fa" ? "en" : "fa")}
+          className="text-white md:block hidden"
+        >
+          {i18n.language === "fa" ? "EN" : "FA"}
+        </button>
       </div>
 
       <ul className="w-full flex flex-col items-start gap-5 overflow-hidden">
@@ -23,7 +39,7 @@ export default function SideMenu({ isMenuOpen }) {
               `text-nowrap ${isActive ? "text-Primary" : "text-white"}`
             }
           >
-            صفحه اصلی
+            {t("NavbarHome")}
           </NavLink>
         </li>
         <li className="w-full flex items-center justify-start gap-3 translate-x-3 hover:translate-x-0 transition-all">
@@ -34,7 +50,7 @@ export default function SideMenu({ isMenuOpen }) {
               `text-nowrap ${isActive ? "text-Primary" : "text-white"}`
             }
           >
-            محصولات
+            {t("NavbarProducts")}
           </NavLink>
         </li>
         <li className="w-full flex items-center justify-start gap-3 translate-x-3 hover:translate-x-0 transition-all">
@@ -45,7 +61,7 @@ export default function SideMenu({ isMenuOpen }) {
               `text-nowrap ${isActive ? "text-Primary" : "text-white"}`
             }
           >
-            خدمات
+            {t("NavbarServices")}
           </NavLink>
         </li>
         <li className="w-full flex items-center justify-start gap-3 translate-x-3 hover:translate-x-0 transition-all">
@@ -56,7 +72,7 @@ export default function SideMenu({ isMenuOpen }) {
               `text-nowrap ${isActive ? "text-Primary" : "text-white"}`
             }
           >
-            دوره‌های آموزشی
+            {t("NavbarTrainingCourse")}
           </NavLink>
         </li>
         <li className="w-full flex items-center justify-start gap-3 translate-x-3 hover:translate-x-0 transition-all">
@@ -67,7 +83,7 @@ export default function SideMenu({ isMenuOpen }) {
               `text-nowrap ${isActive ? "text-Primary" : "text-white"}`
             }
           >
-            همکارامون
+            {t("NavbarColleagues")}
           </NavLink>
         </li>
         <li className="w-full flex items-center justify-start gap-3 translate-x-3 hover:translate-x-0 transition-all">
@@ -78,7 +94,7 @@ export default function SideMenu({ isMenuOpen }) {
               `text-nowrap ${isActive ? "text-Primary" : "text-white"}`
             }
           >
-            تماس با ما
+            {t("NavbarContactUs")}
           </NavLink>
         </li>
         <li className="w-full flex items-center justify-start gap-3 translate-x-3 hover:translate-x-0 transition-all">
@@ -89,7 +105,7 @@ export default function SideMenu({ isMenuOpen }) {
               `text-nowrap ${isActive ? "text-Primary" : "text-white"}`
             }
           >
-            بلاگ
+            {t("NavbarBlog")}
           </NavLink>
         </li>
       </ul>

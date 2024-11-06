@@ -5,6 +5,8 @@ import CustomButtonComponent from "../../../Components/CustomButton/CustomButton
 import Images from "../../../Setting/Images";
 import { IoPlay } from "react-icons/io5";
 import gsap from "gsap";
+import { useTranslation } from "react-i18next";
+import i18n from "../../../i18n";
 
 export default function Landing() {
   const [position, setPosition] = useState(0);
@@ -19,6 +21,7 @@ export default function Landing() {
   const bigLogoIconRefY = useRef(null);
   const mousePos = useRef({ x: 0, y: 0 });
   const lerpFactor = 0.08;
+  const { t } = useTranslation();
 
   useEffect(() => {
     const rotationAnimation = gsap.to(elementRef.current, {
@@ -171,10 +174,10 @@ export default function Landing() {
             <div ref={titleRef} className="w-full flex flex-col items-center">
               <div className="flex sm:flex-row flex-col items-center gap-1 text-center bg-clip-text py-2 text-transparent fill-transparent bg-gradient-to-l from-white to-[#58F4FF]">
                 <span className="lg:text-[55px] md:text-5xl text-3xl font-extrabold DanaBold">
-                  هسته وب؛
+                  {t("CompanyName")}
                 </span>
                 <span className="lg:text-[55px] md:text-5xl text-3xl font-extrabold DanaBold">
-                  در کنار شما برای
+                  {t("SubTitle")}
                 </span>
               </div>
               <div className="w-full sm:h-20 h-14 overflow-hidden">
@@ -183,13 +186,13 @@ export default function Landing() {
                   style={{ transform: `translateY(-${position}px)` }}
                 >
                   <span className="text-center bg-clip-text py-2 text-transparent fill-transparent bg-gradient-to-l from-white to-[#58F4FF] lg:text-[55px] md:text-5xl text-3xl max-[377px]:text-[29px] font-extrabold DanaBold sm:h-20 h-14">
-                    حل مشکلات کاربرانت
+                    {t("SubTitle1")}
                   </span>
                   <span className="text-center bg-clip-text py-2 text-transparent fill-transparent bg-gradient-to-l from-white to-[#58F4FF] lg:text-[55px] md:text-5xl text-3xl max-[377px]:text-[29px] font-extrabold DanaBold sm:h-20 h-14">
-                    رشد کسب و کارت
+                    {t("SubTitle2")}
                   </span>
                   <span className="text-center sm:text-nowrap bg-clip-text py-2 text-transparent fill-transparent bg-gradient-to-l from-white to-[#58F4FF] lg:text-[55px] md:text-5xl text-3xl max-[377px]:text-[29px] font-extrabold DanaBold sm:h-20 h-14">
-                    ساخت لحظه‌های خوب کاربرانت
+                    {t("SubTitle3")}
                   </span>
                 </div>
               </div>
@@ -201,8 +204,7 @@ export default function Landing() {
             />
           </div>
           <p ref={descRef} className="text-center text-white sm:px-20 px-7">
-            ما با استعدادترین و توانمندترین افراد در فناوری و توسعه داریم و به
-            طور مداوم در حال بهبود کیفیت خدمات و محصولاتمون هستیم
+            {t("HomeHeaderDesc")}
           </p>
         </div>
         <img
@@ -212,8 +214,8 @@ export default function Landing() {
         />
       </div>
       <CustomButtonComponent>
+        {t("HomeHeaderBtn")}
         <FaCircleArrowLeft className="text-xl" />
-        تماس با ما
       </CustomButtonComponent>
       <div className="w-full my-20">
         <LinearIcons />
