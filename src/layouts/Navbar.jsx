@@ -8,16 +8,16 @@ import { useTranslation } from "react-i18next";
 import i18n from "../i18n";
 
 export default function Navbar() {
-  const { t, i18n } = useTranslation();
-
-  const changeLanguage = (lng) => {
-    i18n.changeLanguage(lng);
-    document.documentElement.dir = lng === "fa" ? "rtl" : "ltr";
-  };
+  const { i18n } = useTranslation();
+  const [currentLanguage, setCurrentLanguage] = useState(i18n.language);
   useEffect(() => {
-    document.documentElement.dir = i18n.language === "fa" ? "rtl" : "ltr";
-  }, [i18n.language]);
+    i18n.changeLanguage(currentLanguage);
+    document.documentElement.dir = currentLanguage === "fa" ? "rtl" : "ltr";
+  }, [currentLanguage, i18n]);
 
+  const handleLanguageChange = (event) => {
+    setCurrentLanguage(event.target.value);
+  };
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -54,12 +54,14 @@ export default function Navbar() {
         />
       </Link>
       <SideMenu isMenuOpen={isMenuOpen} className="menu" />
-      <button
-        onClick={() => changeLanguage(i18n.language === "fa" ? "en" : "fa")}
-        className="text-white md:block hidden"
+      <select
+        value={currentLanguage}
+        onChange={handleLanguageChange}
+        className="outline-none bg-inherit text-white appearance-none px-3"
       >
-        {i18n.language === "fa" ? "EN" : "FA"}
-      </button>
+        <option value="fa">FA</option>
+        <option value="en">EN</option>
+      </select>
     </div>
   );
 }

@@ -21,7 +21,13 @@ export default function Landing() {
   const bigLogoIconRefY = useRef(null);
   const mousePos = useRef({ x: 0, y: 0 });
   const lerpFactor = 0.08;
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const [texts, setTexts] = useState([
+    t("SubTitle1"),
+    t("SubTitle2"),
+    t("SubTitle3"),
+  ]);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
     const rotationAnimation = gsap.to(elementRef.current, {
@@ -33,6 +39,29 @@ export default function Landing() {
 
     return () => {
       rotationAnimation.kill();
+    };
+  }, []);
+  useEffect(() => {
+    const hoverAnimation = gsap.to(elementRef.current, {
+      scale: 0.5,
+      duration: 0.5,
+      paused: true,
+    });
+
+    circleIconRef.current.addEventListener("mouseenter", () =>
+      hoverAnimation.play()
+    );
+    circleIconRef.current.addEventListener("mouseleave", () =>
+      hoverAnimation.reverse()
+    );
+
+    return () => {
+      circleIconRef.current.removeEventListener("mouseenter", () =>
+        hoverAnimation.play()
+      );
+      circleIconRef.current.removeEventListener("mouseleave", () =>
+        hoverAnimation.reverse()
+      );
     };
   }, []);
 
@@ -131,6 +160,16 @@ export default function Landing() {
     };
   }, []);
 
+  useEffect(() => {
+    setTexts([t("SubTitle1"), t("SubTitle2"), t("SubTitle3")]);
+  }, [i18n.language, t]);
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % texts.length);
+    }, 2000);
+    return () => clearInterval(intervalId);
+  }, [texts.length]);
+
   return (
     <header className="w-full bg-[url('/src/assets/Images/Desktop.png')] bg-cover bg-center flex flex-col items-center pt-40 pb-20 gap-6 relative">
       <div
@@ -147,7 +186,7 @@ export default function Landing() {
       </div>
       <div
         ref={circleIconRef}
-        className="flex items-center justify-center relative z-[3]"
+        className="flex items-center justify-center relative z-[3] group"
       >
         <img
           src={Images.LandingSVG}
@@ -155,7 +194,11 @@ export default function Landing() {
           alt=""
           className="w-[122px] z-[2]"
         />
-        <IoPlay className="text-[#202026] z-[3] text-[22px] absolute left-[51px]" />
+        <img
+          src={Images.ProveLandingSvg}
+          alt=""
+          className="absolute left-[31px] z-[3] group-hover:!scale-150 transition-transform duration-500"
+        />
       </div>
       <div className="w-full flex flex-col items-center relative sm:gap-6">
         <img
@@ -163,38 +206,37 @@ export default function Landing() {
           alt=""
           className="absolute lg:top-10 md:top-8 sm:top-[-10rem] top-[-10rem] max-[400px]:top-[-8.5rem] md:left-[-34rem] sm:left-[-3rem] md:w-auto w-full md:scale-100 scale-150 max-[635px]:scale-[1.8] max-[500px]:scale-[2.2] max-[400px]:scale-[3]"
         />
-        <div className="xl:w-[50%] lg:w-[60%] md:w-[80%] w-full flex flex-col items-center gap-6">
+        <div className="xl:w-[55%] lg:w-[60%] md:w-[80%] w-full flex flex-col items-center sm:gap-7 gap-4">
           <div className="w-full flex items-start justify-center py-2 relative">
             <img
               src={Images.VectorRight}
               alt=""
               className="sm:w-auto w-[66px] lg:mt-8 mt-5 md:static absolute top-0 sm:right-[6.7rem] right-[9rem] max-[560px]:right-[7rem] max-[490px]:right-[5rem] max-[430px]:right-[3rem] max-[380px]:right-[2rem]"
             />
-
             <div ref={titleRef} className="w-full flex flex-col items-center">
               <div className="flex sm:flex-row flex-col items-center gap-1 text-center bg-clip-text py-2 text-transparent fill-transparent bg-gradient-to-l from-white to-[#58F4FF]">
-                <span className="lg:text-[55px] md:text-5xl text-3xl font-extrabold DanaBold">
+                <span className="lg:text-[55px] md:text-5xl text-3xl font-extrabold DanaBold text-nowrap">
                   {t("CompanyName")}
                 </span>
-                <span className="lg:text-[55px] md:text-5xl text-3xl font-extrabold DanaBold">
+                <span className="lg:text-[55px] md:text-5xl text-3xl font-extrabold DanaBold text-nowrap">
                   {t("SubTitle")}
                 </span>
               </div>
               <div className="w-full sm:h-20 h-14 overflow-hidden">
-                <div
-                  className="w-full flex flex-col items-center transition-all duration-1000 delay-300 sm:gap-[6px] gap-6 max-[377px]:gap-5"
-                  style={{ transform: `translateY(-${position}px)` }}
-                >
-                  <span className="text-center bg-clip-text py-2 text-transparent fill-transparent bg-gradient-to-l from-white to-[#58F4FF] lg:text-[55px] md:text-5xl text-3xl max-[377px]:text-[29px] font-extrabold DanaBold sm:h-20 h-14">
-                    {t("SubTitle1")}
-                  </span>
-                  <span className="text-center bg-clip-text py-2 text-transparent fill-transparent bg-gradient-to-l from-white to-[#58F4FF] lg:text-[55px] md:text-5xl text-3xl max-[377px]:text-[29px] font-extrabold DanaBold sm:h-20 h-14">
-                    {t("SubTitle2")}
-                  </span>
-                  <span className="text-center sm:text-nowrap bg-clip-text py-2 text-transparent fill-transparent bg-gradient-to-l from-white to-[#58F4FF] lg:text-[55px] md:text-5xl text-3xl max-[377px]:text-[29px] font-extrabold DanaBold sm:h-20 h-14">
-                    {t("SubTitle3")}
-                  </span>
-                </div>
+                {texts.map((text, index) => (
+                  <div
+                    key={index}
+                    className={`transition-all duration-500 absolute w-full text-center bg-clip-text py-2 text-transparent fill-transparent bg-gradient-to-l from-white to-[#58F4FF] lg:text-[55px] md:text-5xl text-3xl max-[377px]:text-[29px] font-extrabold DanaBold ${
+                      index === currentIndex
+                        ? "transform translate-y-0 opacity-100 scale-100"
+                        : index === (currentIndex + 1) % texts.length
+                        ? "transform translate-y-full opacity-0 scale-100"
+                        : "transform -translate-y-full opacity-0 scale-75"
+                    }`}
+                  >
+                    {text}
+                  </div>
+                ))}
               </div>
             </div>
             <img

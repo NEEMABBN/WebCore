@@ -18,9 +18,9 @@ export default function Footer() {
               const words = textRef.current.querySelectorAll(".word");
               anime({
                 targets: words,
-                scale: [0.4, 1],
+                scale: [0, 1],
                 easing: "easeOutBack",
-                duration: 700,
+                duration: 500,
                 delay: anime.stagger(100),
                 complete: () => {
                   hasAnimated.current = true;
@@ -46,7 +46,7 @@ export default function Footer() {
         <span
           key={index}
           className="word"
-          style={{ display: "inline-block", margin: "0 5px" }}
+          style={{ display: "inline-block", margin: "0 2px" }}
         >
           {word}
         </span>
@@ -60,7 +60,7 @@ export default function Footer() {
   };
 
   return (
-    <div className="w-[95%] flex flex-col items-center relative md:bg-[url('/src/assets/Images/FooterBg.png')] bg-[url('/src/assets/Images/TabletFooterBg.png')] bg-top bg-cover py-10 bg-no-repeat mt-16 rounded-2xl sm:px-0 px-3">
+    <div className="w-[95%] flex flex-col items-center relative md:bg-[url('/src/assets/Images/FooterBg.png')] bg-[url('/src/assets/Images/TabletFooterBg.png')] bg-top bg-cover pt-10 pb-5 bg-no-repeat mt-16 rounded-2xl sm:px-0 px-3">
       <Link
         to="/"
         className="absolute top-[-2rem] w-full flex items-center justify-center"
@@ -137,12 +137,12 @@ export default function Footer() {
           </li>
         </ul>
       </div>
-      <div className="container mx-auto flex md:flex-row flex-col md:items-start items-center justify-between border-solid border-t-2 border-[#4C4E59] py-5">
+      <div className="container mx-auto flex md:flex-row flex-col md:items-start items-center justify-between border-solid border-t-2 border-[#4C4E59] pt-5">
         <p className="text-[#C8DAEA] text-sm leading-6 xl:w-[35%] md:w-[45%] w-full md:text-start text-center md:border-none border-solid border-b-2 border-[#4C4E59] md:p-0 px-5 pb-5">
           <AnimatedText text={t("FooterDesc")} />
         </p>
         <div className="xl:w-[35%] md:w-[45%] w-full flex flex-col md:justify-start justify-normal md:items-start items-center md:gap-4 sm:gap-2 gap-4 md:pt-0 pt-5">
-          <div className="flex items-center gap-2">
+          <div className="flex items-start gap-2">
             <img src={Images.LocationIcon} alt="" className="" />
             <span className="text-[#C8DAEA] text-sm">
               {t("FooterLocation")}

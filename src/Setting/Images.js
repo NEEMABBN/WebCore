@@ -4,7 +4,6 @@ import LandingSVG from "/src/assets/Images/LandingSVG.png";
 import DotedGroup from "/src/assets/Images/DotedGroup.svg";
 import VectorLeft from "/src/assets/Images/VectorLeft.svg";
 import VectorRight from "/src/assets/Images/VectorRight.svg";
-import CircleBg from "/src/assets/Images/CircleBg.png";
 import GradientBg1 from "/src/assets/Images/LinearBgV1.png";
 import GradientBg2 from "/src/assets/Images/LinearBgV2.png";
 import webIcon from "/src/assets/Images/WebIcon.svg";
@@ -28,15 +27,16 @@ import Certificate2 from "/src/assets/Images/govahi2.png";
 import Certificate3 from "/src/assets/Images/govahi3.png";
 import Certificate4 from "/src/assets/Images/govahi4.png";
 import Certificate5 from "/src/assets/Images/govahi5.png";
+import ProveLandingSvg from "/src/assets/Images/LandingProve.svg"
 
 const Images = {
     Logo: LogoImage,
     BigLogoIcon: BigLogoIcon,
     LandingSVG: LandingSVG,
+    ProveLandingSvg: ProveLandingSvg,
     DotedGroup: DotedGroup,
     VectorLeft: VectorLeft,
     VectorRight: VectorRight,
-    CircleBg: CircleBg,
     GradientBg1: GradientBg1,
     GradientBg2: GradientBg2,
     WebIcon: webIcon,

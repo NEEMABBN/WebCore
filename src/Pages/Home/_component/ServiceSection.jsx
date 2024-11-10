@@ -7,6 +7,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 import { useTranslation } from "react-i18next";
 import i18n from "../../../i18n";
+import BackGroundAnimation from "../../../Components/Animations/BackGroundAnimation";
 
 export default function ServiceSection() {
   const imagesRef = useRef(null);
@@ -32,7 +33,7 @@ export default function ServiceSection() {
     gsap.from(titleRef.current, {
       y: -30,
       opacity: 0,
-      delay: 0.4,
+      delay: 0.2,
       duration: 1,
       scrollTrigger: {
         trigger: titleRef.current,
@@ -43,7 +44,7 @@ export default function ServiceSection() {
     gsap.from(descRef.current, {
       y: -30,
       opacity: 0,
-      delay: 0.6,
+      delay: 0.4,
       duration: 1,
       scrollTrigger: {
         trigger: descRef.current,
@@ -68,7 +69,7 @@ export default function ServiceSection() {
       opacity: 0,
       x: -350,
       y: -100,
-      delay: 0.4,
+      delay: 0.2,
       scale: 0,
       duration: 1.5,
       scrollTrigger: {
@@ -83,7 +84,7 @@ export default function ServiceSection() {
       x: 350,
       y: 80,
       scale: 0,
-      delay: 0.3,
+      delay: 0.1,
       duration: 1.5,
       scrollTrigger: {
         trigger: box3Ref.current,
@@ -110,7 +111,10 @@ export default function ServiceSection() {
 
   return (
     <div className="w-full bg-[url('/src/assets/Images/CustomBgV1.png')] md:bg-cover md:gap-0 gap-8 md:bg-center bg-no-repeat bg-top sm:my-16 my-10 lg:py-80 md:py-64 sm:py-32 py-14 flex flex-col items-center justify-center relative">
-      <div className="xl:w-[30%] lg:w-[40%] md:w-[60%] w-full flex flex-col items-center gap-4 px-14">
+      <div className="xl:w-[60%] lg:w-[40%] md:w-[60%] w-full flex flex-col items-center gap-4 px-14 z-[2] relative">
+        <div className="w-full absolute top-[-15rem] z-[1]">
+          <BackGroundAnimation />
+        </div>
         <div ref={imagesRef} className="sm:w-auto w-[66px]">
           <img src={Images.VectorRight} alt="" className="" />
         </div>
@@ -120,7 +124,7 @@ export default function ServiceSection() {
         >
           {t("HomeServiceTitle")}
         </h2>
-        <p ref={descRef} className="text-white text-center">
+        <p ref={descRef} className="text-white text-center px-28">
           {t("HomeServiceDesc")}
         </p>
         <CustomButtonComponent>{t("HomeServiceBtn")}</CustomButtonComponent>
