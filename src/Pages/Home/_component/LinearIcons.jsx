@@ -15,13 +15,13 @@ export default function LinearIcons() {
       animationsRef.current = [
         gsap.to(carousel1, {
           xPercent: -100,
-          duration: 25,
+          duration: 50,
           ease: "none",
           repeat: -1,
         }),
         gsap.from(carousel2, {
           xPercent: 100,
-          duration: 25,
+          duration: 50,
           ease: "none",
           repeat: -1,
         }),
@@ -42,15 +42,17 @@ export default function LinearIcons() {
   };
 
   return (
-    <div className="relative flex items-center whitespace-nowrap">
+    <div
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      className="relative flex items-center whitespace-nowrap"
+    >
       <div
         ref={carouselRef1}
         className="min-w-full flex items-center justify-between gap-3 absolute"
       >
         {ConfigIcons.map((item, index) => (
           <div
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
             className="bg-Secoundray p-3 icon rounded-2xl hover:shadow-Primary hover:shadow-[0px_0px_30px_-5px_rgba(23,225,255,0.5)] transition-all"
             key={index}
           >
@@ -68,8 +70,6 @@ export default function LinearIcons() {
       >
         {ConfigIcons.map((item, index) => (
           <div
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
             className="bg-Secoundray p-3 icon rounded-2xl hover:shadow-Primary hover:shadow-[0px_0px_30px_-5px_rgba(23,225,255,0.5)] transition-all"
             key={index}
           >

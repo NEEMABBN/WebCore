@@ -13,7 +13,7 @@ import i18n from "../../../i18n";
 
 export default function WebCoreNews() {
   const swiperRef = useRef(null);
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const NextSlide = () => {
     swiperRef.current.swiper.slideNext();
@@ -21,6 +21,45 @@ export default function WebCoreNews() {
   const PrevSlide = () => {
     swiperRef.current.swiper.slidePrev();
   };
+
+  const data = [
+    {
+      title: t("HomeNewsSlideTitle1"),
+      image: Images.NewsImageV1,
+      CustomMiniBg: "bg-[#354447]",
+      category: t("HomeNewsSlideCategory1"),
+    },
+    {
+      title: t("HomeNewsSlideTitle2"),
+      image: Images.NewsImageV2,
+      CustomMiniBg: "bg-[#473538]",
+      category: t("HomeNewsSlideCategory2"),
+    },
+    {
+      title: t("HomeNewsSlideTitle1"),
+      image: Images.NewsImageV1,
+      CustomMiniBg: "bg-[#354447]",
+      category: t("HomeNewsSlideCategory1"),
+    },
+    {
+      title: t("HomeNewsSlideTitle2"),
+      image: Images.NewsImageV2,
+      CustomMiniBg: "bg-[#473538]",
+      category: t("HomeNewsSlideCategory2"),
+    },
+    {
+      title: t("HomeNewsSlideTitle1"),
+      image: Images.NewsImageV1,
+      CustomMiniBg: "bg-[#354447]",
+      category: t("HomeNewsSlideCategory1"),
+    },
+    {
+      title: t("HomeNewsSlideTitle2"),
+      image: Images.NewsImageV2,
+      CustomMiniBg: "bg-[#473538]",
+      category: t("HomeNewsSlideCategory2"),
+    },
+  ];
 
   return (
     <div className="w-full bg-[url('/src/assets/Images/CustomBgV3.png')] bg-center">
@@ -55,70 +94,16 @@ export default function WebCoreNews() {
                 }}
                 className="mySwiper"
               >
-                <SwiperSlide>
-                  <EachNewsBoxItemComponent
-                    title={t("HomeNewsSlideTitle1")}
-                    image={Images.NewsImageV1}
-                    CustomMiniBg="bg-[#354447]"
-                    category={t("HomeNewsSlideCategory1")}
-                  />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <EachNewsBoxItemComponent
-                    title={t("HomeNewsSlideTitle2")}
-                    image={Images.NewsImageV2}
-                    CustomMiniBg="bg-[#473538]"
-                    category={t("HomeNewsSlideCategory2")}
-                  />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <EachNewsBoxItemComponent
-                    title={t("HomeNewsSlideTitle1")}
-                    image={Images.NewsImageV1}
-                    CustomMiniBg="bg-[#354447]"
-                    category={t("HomeNewsSlideCategory1")}
-                  />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <EachNewsBoxItemComponent
-                    title={t("HomeNewsSlideTitle2")}
-                    image={Images.NewsImageV2}
-                    CustomMiniBg="bg-[#473538]"
-                    category={t("HomeNewsSlideCategory2")}
-                  />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <EachNewsBoxItemComponent
-                    title={t("HomeNewsSlideTitle1")}
-                    image={Images.NewsImageV1}
-                    CustomMiniBg="bg-[#354447]"
-                    category={t("HomeNewsSlideCategory1")}
-                  />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <EachNewsBoxItemComponent
-                    title={t("HomeNewsSlideTitle2")}
-                    image={Images.NewsImageV2}
-                    CustomMiniBg="bg-[#473538]"
-                    category={t("HomeNewsSlideCategory2")}
-                  />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <EachNewsBoxItemComponent
-                    title={t("HomeNewsSlideTitle1")}
-                    image={Images.NewsImageV1}
-                    CustomMiniBg="bg-[#354447]"
-                    category={t("HomeNewsSlideCategory1")}
-                  />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <EachNewsBoxItemComponent
-                    title={t("HomeNewsSlideTitle2")}
-                    image={Images.NewsImageV2}
-                    CustomMiniBg="bg-[#473538]"
-                    category={t("HomeNewsSlideCategory2")}
-                  />
-                </SwiperSlide>
+                {data.map((item, index) => (
+                  <SwiperSlide key={index}>
+                    <EachNewsBoxItemComponent
+                      title={item.title}
+                      image={item.image}
+                      CustomMiniBg={item.CustomMiniBg}
+                      category={item.category}
+                    />
+                  </SwiperSlide>
+                ))}
               </Swiper>
             </>
           }
@@ -128,7 +113,9 @@ export default function WebCoreNews() {
               {" "}
               <button
                 onClick={NextSlide}
-                className="border-solid border border-[#4C4E59] text-white rounded-full p-3 text-xl"
+                className={`border-solid border border-[#4C4E59] text-white rounded-full p-3 text-xl ${
+                  i18n.language === "fa" ? "rotate-0" : "rotate-180"
+                }`}
               >
                 <FaAngleRight />
               </button>
@@ -137,7 +124,9 @@ export default function WebCoreNews() {
               </button>
               <button
                 onClick={PrevSlide}
-                className="border-solid border border-[#4C4E59] text-white rounded-full p-3 text-xl"
+                className={`border-solid border border-[#4C4E59] text-white rounded-full p-3 text-xl ${
+                  i18n.language === "fa" ? "rotate-0" : "rotate-180"
+                }`}
               >
                 <FaAngleLeft />
               </button>

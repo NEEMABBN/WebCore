@@ -13,7 +13,7 @@ import i18n from "../../../i18n";
 
 export default function TrainingCourses() {
   const swiperRef = useRef(null);
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const NextSlide = () => {
     swiperRef.current.swiper.slideNext();
@@ -21,6 +21,69 @@ export default function TrainingCourses() {
   const PrevSlide = () => {
     swiperRef.current.swiper.slidePrev();
   };
+
+  const data = [
+    {
+      image: Images.CourseImage1,
+      title: t("HomeCourseSlideTitle"),
+      teacher: t("HomeCourseSlideSubName"),
+      NickTeach: t("HomeCourseSlideName"),
+      description: t("HomeCourseSlideDesc"),
+      Unit: t("HomeCourseSlidePriceUnit"),
+      price: t("HomeCourseSlidePrice"),
+      likes: t("HomeCourseSlideLike"),
+    },
+    {
+      image: Images.CourseImage2,
+      title: t("HomeCourseSlideTitle"),
+      teacher: t("HomeCourseSlideSubName"),
+      NickTeach: t("HomeCourseSlideName"),
+      description: t("HomeCourseSlideDesc"),
+      Unit: t("HomeCourseSlidePriceUnit"),
+      price: t("HomeCourseSlidePrice"),
+      likes: t("HomeCourseSlideLike"),
+    },
+    {
+      image: Images.CourseImage3,
+      title: t("HomeCourseSlideTitle"),
+      teacher: t("HomeCourseSlideSubName"),
+      NickTeach: t("HomeCourseSlideName"),
+      description: t("HomeCourseSlideDesc"),
+      Unit: t("HomeCourseSlidePriceUnit"),
+      price: t("HomeCourseSlidePrice"),
+      likes: t("HomeCourseSlideLike"),
+    },
+    {
+      image: Images.CourseImage1,
+      title: t("HomeCourseSlideTitle"),
+      teacher: t("HomeCourseSlideSubName"),
+      NickTeach: t("HomeCourseSlideName"),
+      description: t("HomeCourseSlideDesc"),
+      Unit: t("HomeCourseSlidePriceUnit"),
+      price: t("HomeCourseSlidePrice"),
+      likes: t("HomeCourseSlideLike"),
+    },
+    {
+      image: Images.CourseImage2,
+      title: t("HomeCourseSlideTitle"),
+      teacher: t("HomeCourseSlideSubName"),
+      NickTeach: t("HomeCourseSlideName"),
+      description: t("HomeCourseSlideDesc"),
+      Unit: t("HomeCourseSlidePriceUnit"),
+      price: t("HomeCourseSlidePrice"),
+      likes: t("HomeCourseSlideLike"),
+    },
+    {
+      image: Images.CourseImage3,
+      title: t("HomeCourseSlideTitle"),
+      teacher: t("HomeCourseSlideSubName"),
+      NickTeach: t("HomeCourseSlideName"),
+      description: t("HomeCourseSlideDesc"),
+      Unit: t("HomeCourseSlidePriceUnit"),
+      price: t("HomeCourseSlidePrice"),
+      likes: t("HomeCourseSlideLike"),
+    },
+  ];
 
   return (
     <div className="container mx-auto flex flex-col items-center justify-center">
@@ -51,78 +114,20 @@ export default function TrainingCourses() {
               ref={swiperRef}
               className="mySwiper !py-8 sm:!px-0 !px-5"
             >
-              <SwiperSlide>
-                <EachCourseItemComponent
-                  image={Images.CourseImage1}
-                  title={t("HomeCourseSlideTitle")}
-                  teacher={t("HomeCourseSlideSubName")}
-                  NickTeach={t("HomeCourseSlideName")}
-                  description={t("HomeCourseSlideDesc")}
-                  Unit={t("HomeCourseSlidePriceUnit")}
-                  price={"۱۳۰.۰۰۰"}
-                  likes={"۱۲"}
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-                <EachCourseItemComponent
-                  image={Images.CourseImage2}
-                  title={t("HomeCourseSlideTitle")}
-                  teacher={t("HomeCourseSlideSubName")}
-                  NickTeach={t("HomeCourseSlideName")}
-                  description={t("HomeCourseSlideDesc")}
-                  Unit={t("HomeCourseSlidePriceUnit")}
-                  price={"۱۳۰.۰۰۰"}
-                  likes={"۱۲"}
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-                <EachCourseItemComponent
-                  image={Images.CourseImage3}
-                  title={t("HomeCourseSlideTitle")}
-                  teacher={t("HomeCourseSlideSubName")}
-                  NickTeach={t("HomeCourseSlideName")}
-                  description={t("HomeCourseSlideDesc")}
-                  Unit={t("HomeCourseSlidePriceUnit")}
-                  price={"۱۳۰.۰۰۰"}
-                  likes={"۱۲"}
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-                <EachCourseItemComponent
-                  image={Images.CourseImage2}
-                  title={t("HomeCourseSlideTitle")}
-                  teacher={t("HomeCourseSlideSubName")}
-                  NickTeach={t("HomeCourseSlideName")}
-                  description={t("HomeCourseSlideDesc")}
-                  Unit={t("HomeCourseSlidePriceUnit")}
-                  price={"۱۳۰.۰۰۰"}
-                  likes={"۱۲"}
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-                <EachCourseItemComponent
-                  image={Images.CourseImage1}
-                  title={t("HomeCourseSlideTitle")}
-                  teacher={t("HomeCourseSlideSubName")}
-                  NickTeach={t("HomeCourseSlideName")}
-                  description={t("HomeCourseSlideDesc")}
-                  Unit={t("HomeCourseSlidePriceUnit")}
-                  price={"۱۳۰.۰۰۰"}
-                  likes={"۱۲"}
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-                <EachCourseItemComponent
-                  image={Images.CourseImage3}
-                  title={t("HomeCourseSlideTitle")}
-                  teacher={t("HomeCourseSlideSubName")}
-                  NickTeach={t("HomeCourseSlideName")}
-                  description={t("HomeCourseSlideDesc")}
-                  Unit={t("HomeCourseSlidePriceUnit")}
-                  price={"۱۳۰.۰۰۰"}
-                  likes={"۱۲"}
-                />
-              </SwiperSlide>
+              {data.map((item, index) => (
+                <SwiperSlide key={index}>
+                  <EachCourseItemComponent
+                    image={item.image}
+                    title={item.title}
+                    teacher={item.teacher}
+                    NickTeach={item.NickTeach}
+                    description={item.description}
+                    Unit={item.Unit}
+                    price={item.price}
+                    likes={item.likes}
+                  />
+                </SwiperSlide>
+              ))}
             </Swiper>
           </>
         }
@@ -131,7 +136,9 @@ export default function TrainingCourses() {
             {" "}
             <button
               onClick={NextSlide}
-              className="border-solid border border-[#4C4E59] text-white rounded-full p-3 text-xl"
+              className={`border-solid border border-[#4C4E59] text-white rounded-full p-3 text-xl ${
+                i18n.language === "fa" ? "rotate-0" : "rotate-180"
+              }`}
             >
               <FaAngleRight />
             </button>
@@ -140,7 +147,9 @@ export default function TrainingCourses() {
             </button>
             <button
               onClick={PrevSlide}
-              className="border-solid border border-[#4C4E59] text-white rounded-full p-3 text-xl"
+              className={`border-solid border border-[#4C4E59] text-white rounded-full p-3 text-xl ${
+                i18n.language === "fa" ? "rotate-0" : "rotate-180"
+              }`}
             >
               <FaAngleLeft />
             </button>

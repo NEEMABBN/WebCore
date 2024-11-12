@@ -10,48 +10,13 @@ import i18n from "../../../i18n";
 import BackGroundAnimation from "../../../Components/Animations/BackGroundAnimation";
 
 export default function ServiceSection() {
-  const imagesRef = useRef(null);
-  const titleRef = useRef(null);
-  const descRef = useRef(null);
   const box1Ref = useRef(null);
   const box2Ref = useRef(null);
   const box3Ref = useRef(null);
   const box4Ref = useRef(null);
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   useEffect(() => {
-    gsap.from(imagesRef.current, {
-      y: -30,
-      opacity: 0,
-      duration: 1,
-      scrollTrigger: {
-        trigger: imagesRef.current,
-        start: "top 80%",
-        scrub: false,
-      },
-    });
-    gsap.from(titleRef.current, {
-      y: -30,
-      opacity: 0,
-      delay: 0.2,
-      duration: 1,
-      scrollTrigger: {
-        trigger: titleRef.current,
-        start: "top 80%",
-        scrub: false,
-      },
-    });
-    gsap.from(descRef.current, {
-      y: -30,
-      opacity: 0,
-      delay: 0.4,
-      duration: 1,
-      scrollTrigger: {
-        trigger: descRef.current,
-        start: "top 80%",
-        scrub: false,
-      },
-    });
     gsap.from(box1Ref.current, {
       opacity: 0,
       x: -350,
@@ -69,7 +34,7 @@ export default function ServiceSection() {
       opacity: 0,
       x: -350,
       y: -100,
-      delay: 0.2,
+      delay: 0.3,
       scale: 0,
       duration: 1.5,
       scrollTrigger: {
@@ -95,10 +60,10 @@ export default function ServiceSection() {
     });
     gsap.from(box4Ref.current, {
       opacity: 0,
-      x: -350,
-      y: 80,
+      x: 350,
+      y: -80,
       scale: 0,
-      delay: 0.1,
+      delay: 0.2,
       duration: 1.5,
       scrollTrigger: {
         trigger: box4Ref.current,
@@ -112,19 +77,20 @@ export default function ServiceSection() {
   return (
     <div className="w-full bg-[url('/src/assets/Images/CustomBgV1.png')] md:bg-cover md:gap-0 gap-8 md:bg-center bg-no-repeat bg-top sm:my-16 my-10 lg:py-80 md:py-64 sm:py-32 py-14 flex flex-col items-center justify-center relative">
       <div className="xl:w-[60%] lg:w-[40%] md:w-[60%] w-full flex flex-col items-center gap-4 px-14 z-[2] relative">
-        <div className="w-full absolute top-[-15rem] z-[1]">
+        <div className="w-full absolute top-[-15rem] z-0">
           <BackGroundAnimation />
         </div>
-        <div ref={imagesRef} className="sm:w-auto w-[66px]">
+        <div className="sm:w-auto w-[66px] z-[1]">
           <img src={Images.VectorRight} alt="" className="" />
         </div>
         <h2
-          ref={titleRef}
-          className="sm:text-3xl text-xl text-white font-extrabold text-center"
+          className={`sm:text-3xl text-xl z-[1] text-white font-extrabold text-center ${
+            i18n.language === "fa" ? "PersiaDemi" : "EnglishDemi"
+          }`}
         >
           {t("HomeServiceTitle")}
         </h2>
-        <p ref={descRef} className="text-white text-center px-28">
+        <p className="text-white z-[1] text-center sm:px-28">
           {t("HomeServiceDesc")}
         </p>
         <CustomButtonComponent>{t("HomeServiceBtn")}</CustomButtonComponent>

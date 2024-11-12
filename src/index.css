@@ -2,23 +2,60 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-  font-family: "Dana-Regular";
-}
-
-.DanaBold {
-  font-family: "Dana-Bold";
-}
-
 @layer base {
+
   @font-face {
-    font-family: "Dana-Regular";
-    src: url(../src/assets/Fonts/Webfonts/woff2/Dana-Regular.woff2) format("woff2");
+    font-family: "F-M";
+    src: url(/src/assets/Fonts/Persian/Medium/DanaFaNum-Medium.ttf) format("truetype"),
+      url(/src/assets/Fonts/Persian/Medium/DanaFaNum-Medium.woff) format("woff"),
+      url(/src/assets/Fonts/Persian/Medium/DanaFaNum-Medium.woff2) format("woff2")
   }
 
   @font-face {
-    font-family: "Dana-Bold";
-    src: url(../src/assets/Fonts/Webfonts/woff2/Dana-Bold.woff2) format("woff2");
+    font-family: "F-R";
+    src: url(/src/assets/Fonts/Persian/Regular/DanaFaNum-Regular.ttf) format("truetype"),
+      url(/src/assets/Fonts/Persian/Regular/DanaFaNum-Regular.woff) format("woff"),
+      url(/src/assets/Fonts/Persian/Regular/DanaFaNum-Regular.woff2) format("woff2")
+  }
+
+  @font-face {
+    font-family: "F-D";
+    src: url(/src/assets/Fonts/Persian/DemiBold/DanaFaNum-DemiBold.ttf) format("truetype"),
+      url(/src/assets/Fonts/Persian/DemiBold/DanaFaNum-DemiBold.woff) format("woff"),
+      url(/src/assets/Fonts/Persian/DemiBold/DanaFaNum-DemiBold.woff2) format("woff2")
+  }
+
+  @font-face {
+    font-family: "F-E";
+    src: url(/src/assets/Fonts/Persian/ExtraBold/DanaFaNum-ExtraBold.ttf) format("truetype"),
+      url(/src/assets/Fonts/Persian/ExtraBold/DanaFaNum-ExtraBold.woff) format("woff"),
+      url(/src/assets/Fonts/Persian/ExtraBold/DanaFaNum-ExtraBold.woff2) format("woff2")
+  }
+
+  @font-face {
+    font-family: "E-M";
+    src: url(/src/assets/Fonts/English/Medium/Dana-Medium.ttf) format("truetype"),
+      url(/src/assets/Fonts/English/Medium/Dana-Medium.woff) format("woff"),
+      url(/src/assets/Fonts/English/Medium/Dana-Medium.woff2) format("woff2"),
+      url(/src/assets/Fonts/English/Medium/DanaNoEn-Medium.ttf) format("truetype")
+  }
+
+  @font-face {
+    font-family: "E-R";
+    src: url(/src/assets/Fonts/English/Regular/Dana-Regular.woff) format("woff"),
+      url(/src/assets/Fonts/English/Regular/Dana-Regular.woff2) format("woff2")
+  }
+
+  @font-face {
+    font-family: "E-D";
+    src: url(/src/assets/Fonts/English/DemiBold/Dana-DemiBold.woff) format("woff"),
+      url(/src/assets/Fonts/English/DemiBold/Dana-DemiBold.woff2) format("woff2")
+  }
+
+  @font-face {
+    font-family: "E-E";
+    src: url(/src/assets/Fonts/English/ExtraBold/Dana-ExtraBold.woff) format("woff"),
+      url(/src/assets/Fonts/English/ExtraBold/Dana-ExtraBold.woff2) format("woff2")
   }
 
   @media (min-width: 1536px) {
@@ -26,6 +63,30 @@
       max-width: 1300px !important;
     }
   }
+}
+
+.PersiaExtra {
+  font-family: "F-E" !important;
+}
+
+.PersiaDemi {
+  font-family: "F-D" !important;
+}
+
+.PersiaReg {
+  font-family: "F-R" !important;
+}
+
+.EnglishExtra {
+  font-family: "E-E" !important;
+}
+
+.EnglishDemi {
+  font-family: "E-D" !important;
+}
+
+.EnglishReg {
+  font-family: "E-R" !important;
 }
 
 ::-webkit-scrollbar {

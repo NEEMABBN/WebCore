@@ -3,10 +3,10 @@ import LinearIcons from "./LinearIcons";
 import { FaCircleArrowLeft } from "react-icons/fa6";
 import CustomButtonComponent from "../../../Components/CustomButton/CustomButtonComponent";
 import Images from "../../../Setting/Images";
-import { IoPlay } from "react-icons/io5";
 import gsap from "gsap";
 import { useTranslation } from "react-i18next";
 import i18n from "../../../i18n";
+import { Link } from "react-router-dom";
 
 export default function Landing() {
   const [position, setPosition] = useState(0);
@@ -14,8 +14,6 @@ export default function Landing() {
   const step = 80;
   const maxSteps = 3;
   const elementRef = useRef(null);
-  const titleRef = useRef(null);
-  const descRef = useRef(null);
   const circleIconRef = useRef(null);
   const bigLogoIconRefX = useRef(null);
   const bigLogoIconRefY = useRef(null);
@@ -41,6 +39,7 @@ export default function Landing() {
       rotationAnimation.kill();
     };
   }, []);
+
   useEffect(() => {
     const hoverAnimation = gsap.to(elementRef.current, {
       scale: 0.5,
@@ -84,23 +83,10 @@ export default function Landing() {
   }, [direction, step]);
 
   useEffect(() => {
-    gsap.from(titleRef.current, {
-      duration: 2,
-      y: -50,
-      opacity: 0,
-      ease: "back.out",
-    });
-    gsap.from(descRef.current, {
-      duration: 2,
-      y: -50,
-      opacity: 0,
-      delay: 0.3,
-      ease: "back.out",
-    });
     gsap.from(circleIconRef.current, {
       duration: 2,
       scale: 0,
-      ease: "bounce.out",
+      ease: "back.out",
     });
   }, []);
 
@@ -184,9 +170,10 @@ export default function Landing() {
       >
         <img src={Images.BigLogoIcon} alt="" />
       </div>
-      <div
+      <Link
         ref={circleIconRef}
-        className="flex items-center justify-center relative z-[3] group"
+        to="https://www.youtube.com/@bahramsiadati"
+        className="flex items-center justify-center relative z-[3] group cursor-pointer"
       >
         <img
           src={Images.LandingSVG}
@@ -199,7 +186,7 @@ export default function Landing() {
           alt=""
           className="absolute left-[31px] z-[3] group-hover:!scale-150 transition-transform duration-500"
         />
-      </div>
+      </Link>
       <div className="w-full flex flex-col items-center relative sm:gap-6">
         <img
           src={Images.DotedGroup}
@@ -213,20 +200,24 @@ export default function Landing() {
               alt=""
               className="sm:w-auto w-[66px] lg:mt-8 mt-5 md:static absolute top-0 sm:right-[6.7rem] right-[9rem] max-[560px]:right-[7rem] max-[490px]:right-[5rem] max-[430px]:right-[3rem] max-[380px]:right-[2rem]"
             />
-            <div ref={titleRef} className="w-full flex flex-col items-center">
+            <div
+              className={`w-full flex flex-col items-center ${
+                i18n.language === "fa" ? "PersiaExtra" : "EnglishExtra"
+              }`}
+            >
               <div className="flex sm:flex-row flex-col items-center gap-1 text-center bg-clip-text py-2 text-transparent fill-transparent bg-gradient-to-l from-white to-[#58F4FF]">
-                <span className="lg:text-[55px] md:text-5xl text-3xl font-extrabold DanaBold text-nowrap">
+                <span className="lg:text-[55px] md:text-5xl text-3xl font-extrabold text-nowrap">
                   {t("CompanyName")}
                 </span>
-                <span className="lg:text-[55px] md:text-5xl text-3xl font-extrabold DanaBold text-nowrap">
+                <span className="lg:text-[55px] md:text-5xl text-3xl font-extrabold text-nowrap">
                   {t("SubTitle")}
                 </span>
               </div>
-              <div className="w-full sm:h-20 h-14 overflow-hidden">
+              <div className="w-full sm:h-20 h-14 overflow-hidden flex flex-col items-center">
                 {texts.map((text, index) => (
                   <div
                     key={index}
-                    className={`transition-all duration-500 absolute w-full text-center bg-clip-text py-2 text-transparent fill-transparent bg-gradient-to-l from-white to-[#58F4FF] lg:text-[55px] md:text-5xl text-3xl max-[377px]:text-[29px] font-extrabold DanaBold ${
+                    className={`transition-all duration-500 absolute w-full text-center bg-clip-text py-2 text-transparent fill-transparent bg-gradient-to-l from-white to-[#58F4FF] lg:text-[55px] md:text-5xl text-3xl max-[377px]:text-[29px] font-extrabold ${
                       index === currentIndex
                         ? "transform translate-y-0 opacity-100 scale-100"
                         : index === (currentIndex + 1) % texts.length
@@ -245,7 +236,7 @@ export default function Landing() {
               className="sm:w-auto w-[66px] lg:mt-8 mt-5 md:static absolute top-0 sm:left-[6.7rem] left-[9rem] max-[560px]:left-[7rem] max-[490px]:left-[5rem] max-[430px]:left-[3rem] max-[380px]:left-[2rem]"
             />
           </div>
-          <p ref={descRef} className="text-center text-white sm:px-20 px-7">
+          <p className="text-center text-white sm:px-20 px-7">
             {t("HomeHeaderDesc")}
           </p>
         </div>
@@ -257,7 +248,11 @@ export default function Landing() {
       </div>
       <CustomButtonComponent>
         {t("HomeHeaderBtn")}
-        <FaCircleArrowLeft className="text-xl" />
+        <FaCircleArrowLeft
+          className={`text-xl ${
+            i18n.language === "fa" ? "rotate-0" : "rotate-180"
+          }`}
+        />
       </CustomButtonComponent>
       <div className="w-full my-20">
         <LinearIcons />

@@ -1,63 +1,11 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import Images from "../Setting/Images";
 import { Link, NavLink } from "react-router-dom";
-import anime from "animejs";
 import { useTranslation } from "react-i18next";
 import i18n from "../i18n";
 
 export default function Footer() {
   const { t } = useTranslation();
-  const AnimatedText = ({ text }) => {
-    const textRef = useRef(null);
-    const hasAnimated = useRef(false);
-    useEffect(() => {
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting && !hasAnimated.current) {
-              const words = textRef.current.querySelectorAll(".word");
-              anime({
-                targets: words,
-                scale: [0, 1],
-                easing: "easeOutBack",
-                duration: 500,
-                delay: anime.stagger(100),
-                complete: () => {
-                  hasAnimated.current = true;
-                },
-              });
-              observer.unobserve(entry.target);
-            }
-          });
-        },
-        { threshold: 0.1 }
-      );
-      if (textRef.current) {
-        observer.observe(textRef.current);
-      }
-      return () => {
-        if (textRef.current) {
-          observer.unobserve(textRef.current);
-        }
-      };
-    }, []);
-    const splitTextToWords = (text) => {
-      return text.split(" ").map((word, index) => (
-        <span
-          key={index}
-          className="word"
-          style={{ display: "inline-block", margin: "0 2px" }}
-        >
-          {word}
-        </span>
-      ));
-    };
-    return (
-      <div ref={textRef} style={{ display: "inline-block" }}>
-        {splitTextToWords(text)}
-      </div>
-    );
-  };
 
   return (
     <div className="w-[95%] flex flex-col items-center relative md:bg-[url('/src/assets/Images/FooterBg.png')] bg-[url('/src/assets/Images/TabletFooterBg.png')] bg-top bg-cover pt-10 pb-5 bg-no-repeat mt-16 rounded-2xl sm:px-0 px-3">
@@ -72,10 +20,10 @@ export default function Footer() {
         />
       </Link>
       <div className="w-full flex items-center lg:justify-center justify-between lg:gap-48 translate-y-[-1rem]">
-        <ul className="lg:w-1/2 px-7 flex md:flex-row flex-col md:items-center items-start md:justify-end justify-normal lg:gap-16 md:gap-11 gap-4">
+        <ul className="lg:w-1/2 sm:px-7 flex md:flex-row flex-col md:items-center items-start md:justify-end justify-normal lg:gap-16 md:gap-11 gap-4">
           <li>
             <NavLink
-              to="/somePage"
+              to="/Services"
               className={({ isActive }) =>
                 `${isActive ? "text-Primary" : "text-white"} text-nowrap`
               }
@@ -85,7 +33,7 @@ export default function Footer() {
           </li>
           <li>
             <NavLink
-              to="/somePage"
+              to="/Products"
               className={({ isActive }) =>
                 `${isActive ? "text-Primary" : "text-white"} text-nowrap`
               }
@@ -95,7 +43,7 @@ export default function Footer() {
           </li>
           <li>
             <NavLink
-              to="/somePage"
+              to="/TrainingCourse"
               className={({ isActive }) =>
                 `${isActive ? "text-Primary" : "text-white"} text-nowrap`
               }
@@ -104,10 +52,10 @@ export default function Footer() {
             </NavLink>
           </li>
         </ul>
-        <ul className="lg:w-1/2 px-7 flex md:flex-row flex-col md:items-center items-end md:justify-start justify-normal lg:gap-16 md:gap-11 gap-4">
+        <ul className="lg:w-1/2 sm:px-7 flex md:flex-row flex-col md:items-center items-end md:justify-start justify-normal lg:gap-16 md:gap-11 gap-4">
           <li>
             <NavLink
-              to="/somePage"
+              to="/OurColleagues"
               className={({ isActive }) =>
                 `${isActive ? "text-Primary" : "text-white"} text-nowrap`
               }
@@ -117,7 +65,7 @@ export default function Footer() {
           </li>
           <li>
             <NavLink
-              to="/somePage"
+              to="/ContactUs"
               className={({ isActive }) =>
                 `${isActive ? "text-Primary" : "text-white"} text-nowrap`
               }
@@ -127,7 +75,7 @@ export default function Footer() {
           </li>
           <li>
             <NavLink
-              to="/somePage"
+              to="/Blogs"
               className={({ isActive }) =>
                 `${isActive ? "text-Primary" : "text-white"} text-nowrap`
               }
@@ -139,7 +87,7 @@ export default function Footer() {
       </div>
       <div className="container mx-auto flex md:flex-row flex-col md:items-start items-center justify-between border-solid border-t-2 border-[#4C4E59] pt-5">
         <p className="text-[#C8DAEA] text-sm leading-6 xl:w-[35%] md:w-[45%] w-full md:text-start text-center md:border-none border-solid border-b-2 border-[#4C4E59] md:p-0 px-5 pb-5">
-          <AnimatedText text={t("FooterDesc")} />
+          {t("FooterDesc")}
         </p>
         <div className="xl:w-[35%] md:w-[45%] w-full flex flex-col md:justify-start justify-normal md:items-start items-center md:gap-4 sm:gap-2 gap-4 md:pt-0 pt-5">
           <div className="flex items-start gap-2">
