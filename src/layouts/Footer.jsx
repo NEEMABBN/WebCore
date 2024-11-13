@@ -23,22 +23,22 @@ export default function Footer() {
         <ul className="lg:w-1/2 sm:px-7 flex md:flex-row flex-col md:items-center items-start md:justify-end justify-normal lg:gap-16 md:gap-11 gap-4">
           <li>
             <NavLink
-              to="/Services"
-              className={({ isActive }) =>
-                `${isActive ? "text-Primary" : "text-white"} text-nowrap`
-              }
-            >
-              {t("NavbarServices")}
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
               to="/Products"
               className={({ isActive }) =>
                 `${isActive ? "text-Primary" : "text-white"} text-nowrap`
               }
             >
               {t("NavbarProducts")}
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/Services"
+              className={({ isActive }) =>
+                `${isActive ? "text-Primary" : "text-white"} text-nowrap`
+              }
+            >
+              {t("NavbarServices")}
             </NavLink>
           </li>
           <li>
