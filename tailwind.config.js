@@ -8,7 +8,8 @@ export default {
     extend: {
       colors: {
         Primary: "#17E1FF",
-        Secoundray: "#2E2F36"
+        Secoundray: "#2E2F36",
+        Based: "#202026",
       },
     },
   },

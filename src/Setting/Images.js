@@ -28,6 +28,13 @@ import Certificate3 from "/src/assets/Images/govahi3.png";
 import Certificate4 from "/src/assets/Images/govahi4.png";
 import Certificate5 from "/src/assets/Images/govahi5.png";
 import ProveLandingSvg from "/src/assets/Images/LandingProve.svg"
+import DropDownIcon from "/src/assets/Images/DropDownIcon.png"
+import user1 from "/src/assets/Images/userProfile1.png"
+import user2 from "/src/assets/Images/userProfile2.png"
+import user3 from "/src/assets/Images/userProfile3.png"
+import user4 from "/src/assets/Images/userProfile4.png"
+import UserProfileMore from "/src/assets/Images/ShowMoreImage.png"
+import OurProductIcon from "/src/assets/Images/OurProductIcon1.png"
 
 const Images = {
     Logo: LogoImage,
@@ -60,6 +67,13 @@ const Images = {
     Certificate3: Certificate3,
     Certificate4: Certificate4,
     Certificate5: Certificate5,
+    DropDownIcon: DropDownIcon,
+    UserProfile1: user1,
+    UserProfile2: user2,
+    UserProfile3: user3,
+    UserProfile4: user4,
+    UserProfileMore: UserProfileMore,
+    OurProductIcon: OurProductIcon,
 }
 
 export default Images;

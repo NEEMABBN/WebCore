@@ -6,7 +6,7 @@ import Footer from "./layouts/Footer";
 
 function App() {
   return (
-    <div className="w-full flex flex-col items-center bg-Secoundray overflow-hidden">
+    <div className="w-full flex flex-col items-center bg-Based overflow-hidden">
       <Navbar />
       <Routes>
         {router.map((item, index) => (

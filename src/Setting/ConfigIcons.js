@@ -40,9 +40,6 @@ const ConfigIcons = [
     { Icon: Icon18 },
     { Icon: Icon19 },
     { Icon: Icon20 },
-    // { Icon: Icon1 },
-    // { Icon: Icon2 },
-    // { Icon: Icon3 },
 ]
 
 export default ConfigIcons

@@ -20,14 +20,20 @@ export default function Landing() {
   const mousePos = useRef({ x: 0, y: 0 });
   const lerpFactor = 0.08;
   const { t, i18n } = useTranslation();
+  const [currentIndex, setCurrentIndex] = useState(0);
   const [texts, setTexts] = useState([
     t("SubTitle1"),
     t("SubTitle2"),
     t("SubTitle3"),
   ]);
-  const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
+    gsap.from(circleIconRef.current, {
+      duration: 2,
+      scale: 0,
+      ease: "back.out",
+    });
+
     const rotationAnimation = gsap.to(elementRef.current, {
       rotation: 360,
       duration: 8,
@@ -35,32 +41,27 @@ export default function Landing() {
       ease: "linear",
     });
 
-    return () => {
-      rotationAnimation.kill();
-    };
-  }, []);
-
-  useEffect(() => {
     const hoverAnimation = gsap.to(elementRef.current, {
       scale: 0.5,
       duration: 0.5,
       paused: true,
     });
 
-    circleIconRef.current.addEventListener("mouseenter", () =>
-      hoverAnimation.play()
-    );
-    circleIconRef.current.addEventListener("mouseleave", () =>
-      hoverAnimation.reverse()
-    );
+    const handleMouseEnter = () => hoverAnimation.play();
+    const handleMouseLeave = () => hoverAnimation.reverse();
+    const currentCircleRef = circleIconRef.current;
+
+    if (currentCircleRef) {
+      currentCircleRef.addEventListener("mouseenter", handleMouseEnter);
+      currentCircleRef.addEventListener("mouseleave", handleMouseLeave);
+    }
 
     return () => {
-      circleIconRef.current.removeEventListener("mouseenter", () =>
-        hoverAnimation.play()
-      );
-      circleIconRef.current.removeEventListener("mouseleave", () =>
-        hoverAnimation.reverse()
-      );
+      if (currentCircleRef) {
+        currentCircleRef.removeEventListener("mouseenter", handleMouseEnter);
+        currentCircleRef.removeEventListener("mouseleave", handleMouseLeave);
+      }
+      rotationAnimation.kill();
     };
   }, []);
 
@@ -81,14 +82,6 @@ export default function Landing() {
     }, 2000);
     return () => clearInterval(interval);
   }, [direction, step]);
-
-  useEffect(() => {
-    gsap.from(circleIconRef.current, {
-      duration: 2,
-      scale: 0,
-      ease: "back.out",
-    });
-  }, []);
 
   useEffect(() => {
     const handleMouseMove = (event) => {
