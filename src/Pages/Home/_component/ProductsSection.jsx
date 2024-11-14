@@ -5,6 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { useTranslation } from "react-i18next";
 import i18n from "../../../i18n";
+import ProductImageItem from "../../../Components/ProductImageItem/ProductImageItem";
 
 export default function ProductsSection() {
   const { t, i18n } = useTranslation();
@@ -129,54 +130,32 @@ export default function ProductsSection() {
 
         <div className="w-1/2 lg:flex hidden flex-col items-center gap-3">
           <div className="flex items-center gap-3">
-            <div className="w-[40%] rounded-2xl overflow-hidden relative group">
-              <img src={Images.YaraShop} alt="" className="" />
-              <div className="bg-[#202026] flex items-center rounded-tr-2xl absolute bottom-0 left-0 gap-2 p-3 group-hover:px-7 transition-all">
-                <BsFillArrowDownLeftCircleFill className="absolute text-white group-hover:block hidden top-[-0.5rem] right-[-0.5rem] transition-all text-3xl" />
-                <span className="text-[#A9C1D4]">
-                  {t("HomeProductImgTitle1")}
-                </span>
-                <span className="text-white">/</span>
-                <span className="text-white">{t("HomeProductImgValue1")}</span>
-              </div>
-            </div>
-            <div className="w-[60%] rounded-2xl overflow-hidden relative group">
-              <img src={Images.AppXHomeV1} alt="" className="" />
-              <div className="bg-[#202026] flex items-center rounded-tr-2xl absolute bottom-0 left-0 gap-2 p-3 group-hover:px-7 transition-all">
-                <BsFillArrowDownLeftCircleFill className="absolute text-white group-hover:block hidden top-[-0.5rem] right-[-0.5rem] transition-all text-3xl" />
-                <span className="text-[#A9C1D4]">
-                  {t("HomeProductImgTitle2")}
-                </span>
-                <span className="text-white">/</span>
-                <span className="text-white">{t("HomeProductImgValue2")}</span>
-              </div>
-            </div>
+            <ProductImageItem
+              size="w-[40%]"
+              image={Images.YaraShop}
+              title={t("HomeProductImgTitle1")}
+              category={t("HomeProductImgValue1")}
+            />
+            <ProductImageItem
+              size="w-[60%]"
+              image={Images.AppXHomeV1}
+              title={t("HomeProductImgTitle2")}
+              category={t("HomeProductImgValue2")}
+            />
           </div>
-
           <div className="flex items-center gap-3">
-            <div className="w-[50%] rounded-2xl overflow-hidden relative group">
-              <img src={Images.WebXHome} alt="" className="" />
-              <div className="bg-[#202026] flex items-center rounded-tr-2xl absolute bottom-0 left-0 gap-2 p-3 group-hover:px-7 transition-all">
-                <BsFillArrowDownLeftCircleFill className="absolute text-white group-hover:block hidden top-[-0.5rem] right-[-0.5rem] transition-all text-3xl" />
-                <span className="text-[#A9C1D4]">
-                  {t("HomeProductImgTitle3")}
-                </span>
-                <span className="text-white">/</span>
-                <span className="text-white">{t("HomeProductImgValue2")}</span>
-              </div>
-            </div>
-
-            <div className="w-[50%] rounded-2xl overflow-hidden relative group">
-              <img src={Images.AppXHomeV2} alt="" className="" />
-              <div className="bg-[#202026] flex items-center rounded-tr-2xl absolute bottom-0 left-0 gap-2 p-3 group-hover:px-7 transition-all">
-                <BsFillArrowDownLeftCircleFill className="absolute text-white group-hover:block hidden top-[-0.5rem] right-[-0.5rem] transition-all text-3xl" />
-                <span className="text-[#A9C1D4]">
-                  {t("HomeProductImgTitle2")}
-                </span>
-                <span className="text-white">/</span>
-                <span className="text-white">{t("HomeProductImgValue2")}</span>
-              </div>
-            </div>
+            <ProductImageItem
+              size="w-[50%]"
+              image={Images.WebXHome}
+              title={t("HomeProductImgTitle3")}
+              category={t("HomeProductImgValue2")}
+            />
+            <ProductImageItem
+              size="w-[50%]"
+              image={Images.AppXHomeV2}
+              title={t("HomeProductImgTitle2")}
+              category={t("HomeProductImgValue2")}
+            />
           </div>
         </div>
       </div>

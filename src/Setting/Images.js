@@ -14,6 +14,7 @@ import YaraShop from "/src/assets/Images/ScriptYaraShop.png";
 import WebXHome from "/src/assets/Images/WebXHome.png";
 import AppXHomeV1 from "/src/assets/Images/AppXHomeV1.png";
 import AppXHomeV2 from "/src/assets/Images/AppXHomeV2.png";
+import AppXHomeV3 from "/src/assets/Images/XHomeApp.png"
 import CourseImage1 from "/src/assets/Images/Course1.png";
 import CourseImage2 from "/src/assets/Images/Course2.png";
 import CourseImage3 from "/src/assets/Images/Course3.png";
@@ -54,6 +55,7 @@ const Images = {
     WebXHome: WebXHome,
     AppXHomeV1: AppXHomeV1,
     AppXHomeV2: AppXHomeV2,
+    AppXHomeV3: AppXHomeV3,
     CourseImage1: CourseImage1,
     CourseImage2: CourseImage2,
     CourseImage3: CourseImage3,
