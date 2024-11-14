@@ -2,6 +2,7 @@ import React from "react";
 import ProductHeader from "./_component/ProductHeader";
 import OurProducts from "./_component/OurProducts";
 import NewProduct from "./_component/NewProduct";
+import BestProductsWeek from "./_component/BestProductsWeek";
 
 export default function Products() {
   return (
@@ -9,6 +10,7 @@ export default function Products() {
       <ProductHeader />
       <OurProducts />
       <NewProduct />
+      <BestProductsWeek />
     </div>
   );
 }
