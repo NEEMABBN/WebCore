@@ -4,6 +4,7 @@ import OurProducts from "./_component/OurProducts";
 import NewProduct from "./_component/NewProduct";
 import BestProductsWeek from "./_component/BestProductsWeek";
 import DiscountProducts from "./_component/DiscountProducts";
+import NewProductsWeek from "./_component/NewProductsWeek";
 
 export default function Products() {
   return (
@@ -13,6 +14,7 @@ export default function Products() {
       <NewProduct />
       <BestProductsWeek />
       <DiscountProducts />
+      <NewProductsWeek />
     </div>
   );
 }
