@@ -3,6 +3,7 @@ import ProductHeader from "./_component/ProductHeader";
 import OurProducts from "./_component/OurProducts";
 import NewProduct from "./_component/NewProduct";
 import BestProductsWeek from "./_component/BestProductsWeek";
+import DiscountProducts from "./_component/DiscountProducts";
 
 export default function Products() {
   return (
@@ -11,6 +12,7 @@ export default function Products() {
       <OurProducts />
       <NewProduct />
       <BestProductsWeek />
+      <DiscountProducts />
     </div>
   );
 }

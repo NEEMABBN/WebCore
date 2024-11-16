@@ -36,6 +36,7 @@ import user3 from "/src/assets/Images/userProfile3.png"
 import user4 from "/src/assets/Images/userProfile4.png"
 import UserProfileMore from "/src/assets/Images/ShowMoreImage.png"
 import OurProductIcon from "/src/assets/Images/OurProductIcon1.png"
+import discountSlideImage from "/src/assets/Images/discountProductSlideImage.png"
 
 const Images = {
     Logo: LogoImage,
@@ -76,6 +77,7 @@ const Images = {
     UserProfile4: user4,
     UserProfileMore: UserProfileMore,
     OurProductIcon: OurProductIcon,
+    discountSlideImage: discountSlideImage,
 }
 
 export default Images;
